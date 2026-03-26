@@ -19,7 +19,6 @@
 | 🔒 Cybersecurity | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)** |
 | ⚡ Electronic Engineering | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)** |
 | 🧠 Artificial Intelligence | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)** |
-| 💡 Bonus Playbook | **[▶ West Africa Credit Scoring Startup](https://migdad-latif.github.io/free-university-level-bsc-msc/credit_scoring_playbook.html)** |
 
 No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
 
@@ -174,7 +173,6 @@ free-university-level-bsc-msc/
 ├── [open_cybersecurity_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)         # 🔒 Cybersecurity
 ├── [open_electronic_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)  # ⚡ Electronic Engineering
 ├── [open_ai_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)               # 🧠 Artificial Intelligence
-└── [credit_scoring_playbook.html](https://migdad-latif.github.io/free-university-level-bsc-msc/credit_scoring_playbook.html)    # Bonus: West Africa credit scoring startup
 ```
 
 ---
