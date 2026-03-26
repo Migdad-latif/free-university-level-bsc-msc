@@ -2,11 +2,24 @@
 
 > **5 complete degree programmes. 140 modules. £0 cost. 100% open source.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Modules](https://img.shields.io/badge/Total%20Modules-140-blue)
-![Courses](https://img.shields.io/badge/Degrees-5-brightgreen)
-![Cost](https://img.shields.io/badge/Cost-£0-green)
-![No Institution](https://img.shields.io/badge/Institution-None-lightgrey)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+![Modules](https://img.shields.io/badge/modules-140-blue)
+![Courses](https://img.shields.io/badge/degrees-5-brightgreen)
+![Cost](https://img.shields.io/badge/cost-free-success)
+![No Institution](https://img.shields.io/badge/institution-none-lightgrey)
+
+---
+
+## 🌐 Live Demo — Click to Open
+
+| Programme | Direct Link |
+|-----------|-------------|
+| 📊 Data Science & FinTech | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html)** |
+| 💻 Software Engineering | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html)** |
+| 🔒 Cybersecurity | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)** |
+| ⚡ Electronic Engineering | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)** |
+| 🧠 Artificial Intelligence | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)** |
+| 💡 Bonus Playbook | **[▶ West Africa Credit Scoring Startup](https://migdad-latif.github.io/free-university-level-bsc-msc/credit_scoring_playbook.html)** |
 
 No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
 
@@ -16,11 +29,11 @@ No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc 
 
 | # | Programme | File | Modules |
 |---|-----------|------|---------|
-| 1 | 📊 Data Science & FinTech | `open_ds_fintech_university.html` | 28 |
-| 2 | 💻 Software Engineering | `open_software_engineering_university.html` | 28 |
-| 3 | 🔒 Cybersecurity | `open_cybersecurity_university.html` | 28 |
-| 4 | ⚡ Electronic Engineering | `open_electronic_engineering_university.html` | 28 |
-| 5 | 🧠 Artificial Intelligence | `open_ai_university.html` | 28 |
+| 1 | 📊 Data Science & FinTech | [open_ds_fintech_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html) | 28 |
+| 2 | 💻 Software Engineering | [open_software_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html) | 28 |
+| 3 | 🔒 Cybersecurity | [open_cybersecurity_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html) | 28 |
+| 4 | ⚡ Electronic Engineering | [open_electronic_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html) | 28 |
+| 5 | 🧠 Artificial Intelligence | [open_ai_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html) | 28 |
 
 Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
 
@@ -155,13 +168,13 @@ A complete 5-year curriculum from mathematical foundations through deep learning
 
 ```
 free-university-level-bsc-msc/
-README.md                                      # This file
-open_ds_fintech_university.html                # 📊 Data Science & FinTech
-open_software_engineering_university.html      # 💻 Software Engineering
-open_cybersecurity_university.html             # 🔒 Cybersecurity
-open_electronic_engineering_university.html    # ⚡ Electronic Engineering
-open_ai_university.html                        # 🧠 Artificial Intelligence
-credit_scoring_playbook.html                   # Bonus: West Africa credit scoring startup
+├── README.md                                      # This file
+├── [open_ds_fintech_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html)   # 📊 Data Science & FinTech
+├── [open_software_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html)  # 💻 Software Engineering
+├── [open_cybersecurity_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)         # 🔒 Cybersecurity
+├── [open_electronic_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)  # ⚡ Electronic Engineering
+├── [open_ai_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)               # 🧠 Artificial Intelligence
+└── [credit_scoring_playbook.html](https://migdad-latif.github.io/free-university-level-bsc-msc/credit_scoring_playbook.html)    # Bonus: West Africa credit scoring startup
 ```
 
 ---
