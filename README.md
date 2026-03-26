@@ -10,20 +10,6 @@ https://migdad-latif.github.io/free-university-level-bsc-msc/
 
 ---
 
-## 🌐 Live Demo — Click to Open
-
-| Programme |
-|-----------|
-| 📊 Data Science & FinTech | 
-| 💻 Software Engineering | 
-| 🔒 Cybersecurity | 
-| ⚡ Electronic Engineering | 
-| 🧠 Artificial Intelligence |
-
-No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
-
----
-
 ## 📚 The Five Programmes
 
 | # | Programme | 
