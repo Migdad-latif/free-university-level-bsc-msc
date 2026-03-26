@@ -14,11 +14,11 @@
 
 | Programme | Direct Link |
 |-----------|-------------|
-| 📊 Data Science & FinTech | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html)** |
-| 💻 Software Engineering | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html)** |
-| 🔒 Cybersecurity | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)** |
-| ⚡ Electronic Engineering | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)** |
-| 🧠 Artificial Intelligence | **[▶ Open Curriculum](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)** |
+| 📊 Data Science & FinTech | 
+| 💻 Software Engineering | 
+| 🔒 Cybersecurity | **[▶ 
+| ⚡ Electronic Engineering | 
+| 🧠 Artificial Intelligence |
 
 No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
 
@@ -28,11 +28,11 @@ No tuition fees. No admissions process. No gatekeeping. Five complete BSc + MSc 
 
 | # | Programme | File | Modules |
 |---|-----------|------|---------|
-| 1 | 📊 Data Science & FinTech | [open_ds_fintech_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html) | 28 |
-| 2 | 💻 Software Engineering | [open_software_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html) | 28 |
-| 3 | 🔒 Cybersecurity | [open_cybersecurity_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html) | 28 |
-| 4 | ⚡ Electronic Engineering | [open_electronic_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html) | 28 |
-| 5 | 🧠 Artificial Intelligence | [open_ai_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html) | 28 |
+| 1 | 📊 Data Science & FinTech | 
+| 2 | 💻 Software Engineering | 
+| 3 | 🔒 Cybersecurity |
+| 4 | ⚡ Electronic Engineering | 
+| 5 | 🧠 Artificial Intelligence | 
 
 Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
 
