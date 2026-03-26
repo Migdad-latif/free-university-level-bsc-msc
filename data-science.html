@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open DS & FinTech University</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0e1a;
+    --navy-mid: #111827;
+    --navy-card: #151c2e;
+    --navy-border: #1e2d4a;
+    --gold: #d4a843;
+    --gold-light: #e8c06a;
+    --gold-dim: #8a6c28;
+    --teal: #2dd4bf;
+    --teal-dim: #134e4a;
+    --red: #ef4444;
+    --text-primary: #f0f4ff;
+    --text-secondary: #94a3b8;
+    --text-dim: #475569;
+    --y1: #3b82f6;
+    --y2: #8b5cf6;
+    --y3: #10b981;
+    --y4: #f59e0b;
+    --y5: #ec4899;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0a0e1a 0%, #0d1530 50%, #0a0e1a 100%);
+    border-bottom: 1px solid var(--navy-border);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .logo-crest {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+  }
+  .logo-text span { color: var(--gold); }
+  .logo-sub { font-size: 0.65rem; color: var(--text-secondary); font-weight: 300; letter-spacing: 0.1em; }
+  .header-stats {
+    display: flex; gap: 1.5rem; align-items: center;
+  }
+  .stat-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--navy-border);
+    color: var(--text-secondary);
+  }
+  .stat-pill.prog {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  .app { display: flex; height: calc(100vh - 64px); }
+
+  /* ── SIDEBAR ── */
+  aside {
+    width: 260px;
+    min-width: 260px;
+    background: var(--navy-mid);
+    border-right: 1px solid var(--navy-border);
+    overflow-y: auto;
+    padding: 1.5rem 0;
+  }
+  .sidebar-section { margin-bottom: 0.5rem; }
+  .sidebar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    padding: 0.25rem 1.25rem 0.5rem;
+    text-transform: uppercase;
+  }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+  .sidebar-item:hover { background: rgba(212,168,67,0.05); color: var(--text-primary); }
+  .sidebar-item.active {
+    border-left-color: var(--gold);
+    background: rgba(212,168,67,0.08);
+    color: var(--gold);
+  }
+  .sidebar-item.year-header {
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+    cursor: default;
+  }
+  .year-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .mod-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    min-width: 24px;
+  }
+  .check-icon { margin-left: auto; font-size: 0.75rem; color: var(--teal); }
+
+  /* ── MAIN ── */
+  main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 2.5rem;
+  }
+
+  /* ── OVERVIEW ── */
+  .overview-hero {
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a1040 100%);
+    border: 1px solid var(--navy-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, rgba(212,168,67,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .hero-title em { color: var(--gold); font-style: italic; }
+  .hero-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 680px;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .equiv-row {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .equiv-chip {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+  }
+  .equiv-chip strong { color: var(--text-primary); display: block; font-size: 0.85rem; }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .year-card {
+    border-radius: 12px;
+    border: 1px solid var(--navy-border);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .year-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    opacity: 0.8;
+  }
+  .year-card.y1 { background: rgba(59,130,246,0.05); border-color: rgba(59,130,246,0.2); }
+  .year-card.y1::after { background: var(--y1); }
+  .year-card.y2 { background: rgba(139,92,246,0.05); border-color: rgba(139,92,246,0.2); }
+  .year-card.y2::after { background: var(--y2); }
+  .year-card.y3 { background: rgba(16,185,129,0.05); border-color: rgba(16,185,129,0.2); }
+  .year-card.y3::after { background: var(--y3); }
+  .year-card.y4 { background: rgba(245,158,11,0.05); border-color: rgba(245,158,11,0.2); }
+  .year-card.y4::after { background: var(--y4); }
+  .year-card.y5 { background: rgba(236,72,153,0.05); border-color: rgba(236,72,153,0.2); }
+  .year-card.y5::after { background: var(--y5); }
+  .year-card:hover { transform: translateY(-2px); }
+  .year-card-year {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .year-card.y1 .year-card-year { color: var(--y1); }
+  .year-card.y2 .year-card-year { color: var(--y2); }
+  .year-card.y3 .year-card-year { color: var(--y3); }
+  .year-card.y4 .year-card-year { color: var(--y4); }
+  .year-card.y5 .year-card-year { color: var(--y5); }
+  .year-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .year-card-desc { font-size: 0.76rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem; }
+  .year-card-modules { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--text-dim); }
+
+  .how-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .how-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .how-icon { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .how-title { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem; }
+  .how-desc { font-size: 0.72rem; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ── MODULE VIEW ── */
+  .module-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .module-num-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-top: 4px;
+  }
+  .module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .module-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .meta-tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .module-desc {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+    max-width: 780px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--navy-border);
+  }
+
+  /* Topics */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 1.75rem;
+  }
+  .topic-chip {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .topic-chip::before { content: '◆'; font-size: 0.5rem; opacity: 0.5; }
+
+  /* Resources */
+  .resources-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+  .resource-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.15s;
+  }
+  .resource-card:hover { border-color: var(--gold-dim); }
+  .resource-icon {
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .resource-body { flex: 1; min-width: 0; }
+  .resource-name { font-size: 0.88rem; font-weight: 600; margin-bottom: 2px; }
+  .resource-desc { font-size: 0.75rem; color: var(--text-secondary); }
+  .resource-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .resource-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .type-course { background: rgba(59,130,246,0.15); color: #93c5fd; }
+  .type-video { background: rgba(239,68,68,0.15); color: #fca5a5; }
+  .type-book { background: rgba(212,168,67,0.15); color: var(--gold); }
+  .type-practice { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+  .type-docs { background: rgba(139,92,246,0.15); color: #c4b5fd; }
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--navy);
+    background: var(--teal);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .resource-link:hover {
+    background: #5eead4;
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  .resource-link::after { content: ' ↗'; font-size: 0.7rem; }
+  .free-badge {
+    font-size: 0.6rem;
+    background: rgba(16,185,129,0.15);
+    color: #6ee7b7;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid rgba(16,185,129,0.25);
+  }
+
+  /* Outcomes */
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+  }
+  .outcome-item {
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 8px;
+    background: var(--navy-card);
+    border-radius: 6px;
+    border: 1px solid var(--navy-border);
+  }
+  .outcome-item::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+
+  /* Project */
+  .project-box {
+    background: linear-gradient(135deg, rgba(212,168,67,0.07) 0%, rgba(212,168,67,0.03) 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .project-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .project-title { font-weight: 600; margin-bottom: 0.4rem; }
+  .project-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Nav buttons */
+  .module-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--navy-border);
+  }
+  .nav-btn {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .nav-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+  .nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--navy-border); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+  .hidden { display: none !important; }
+  .msc-divider {
+    margin: 0.75rem 1.25rem 0.25rem;
+    padding: 6px 10px;
+    background: linear-gradient(90deg, rgba(245,158,11,0.12), transparent);
+    border-left: 3px solid var(--y4);
+    border-radius: 0 4px 4px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: var(--y4);
+  }
+  .overview-section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .progress-bar-wrap {
+    background: var(--navy-border);
+    border-radius: 999px;
+    height: 4px;
+    width: 80px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 999px;
+    transition: width 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    aside { width: 200px; min-width: 200px; }
+    .overview-grid { grid-template-columns: 1fr; }
+    .how-row { grid-template-columns: repeat(2,1fr); }
+    main { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-crest">🎓</div>
+    <div>
+      <div class="logo-text">Open <span>DS·FinTech</span> University</div>
+      <div class="logo-sub">FREE · SELF-PACED · BSc (3 YRS) + MSc (2 YRS) · 28 MODULES</div>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat-pill">28 Modules</div>
+    <div class="stat-pill">BSc + MSc · 5 Years</div>
+    <div class="stat-pill prog" id="progressPill">0% Complete</div>
+  </div>
+</header>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-item active" onclick="showView('overview')" id="nav-overview">
+        <span>🏠</span> Overview
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Year 1 — Foundations</div>
+      <div class="sidebar-item" onclick="showModule(0)" id="nav-0">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">01</span> Mathematics for DS
+      </div>
+      <div class="sidebar-item" onclick="showModule(1)" id="nav-1">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">02</span> Python Programming
+      </div>
+      <div class="sidebar-item" onclick="showModule(2)" id="nav-2">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">03</span> Statistics & Probability
+      </div>
+      <div class="sidebar-item" onclick="showModule(3)" id="nav-3">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">04</span> Databases & SQL
+      </div>
+      <div class="sidebar-item" onclick="showModule(4)" id="nav-4">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">05</span> Intro to Finance & FinTech
+      </div>
+      <div class="sidebar-item" onclick="showModule(5)" id="nav-5">
+        <span class="year-dot" style="background:var(--y1)"></span>
+        <span class="mod-num">06</span> Data Wrangling & EDA
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Year 2 — Core DS</div>
+      <div class="sidebar-item" onclick="showModule(6)" id="nav-6">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">07</span> Machine Learning
+      </div>
+      <div class="sidebar-item" onclick="showModule(7)" id="nav-7">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">08</span> Data Visualisation
+      </div>
+      <div class="sidebar-item" onclick="showModule(8)" id="nav-8">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">09</span> Time Series Analysis
+      </div>
+      <div class="sidebar-item" onclick="showModule(9)" id="nav-9">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">10</span> Financial Mathematics
+      </div>
+      <div class="sidebar-item" onclick="showModule(10)" id="nav-10">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">11</span> Big Data & Cloud
+      </div>
+      <div class="sidebar-item" onclick="showModule(11)" id="nav-11">
+        <span class="year-dot" style="background:var(--y2)"></span>
+        <span class="mod-num">12</span> Software Engineering
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Year 3 — FinTech Advanced</div>
+      <div class="sidebar-item" onclick="showModule(12)" id="nav-12">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">13</span> Deep Learning
+      </div>
+      <div class="sidebar-item" onclick="showModule(13)" id="nav-13">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">14</span> NLP for Finance
+      </div>
+      <div class="sidebar-item" onclick="showModule(14)" id="nav-14">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">15</span> Risk Modelling
+      </div>
+      <div class="sidebar-item" onclick="showModule(15)" id="nav-15">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">16</span> Algorithmic Trading
+      </div>
+      <div class="sidebar-item" onclick="showModule(16)" id="nav-16">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">17</span> RegTech & Compliance
+      </div>
+      <div class="sidebar-item" onclick="showModule(17)" id="nav-17">
+        <span class="year-dot" style="background:var(--y3)"></span>
+        <span class="mod-num">18</span> Capstone Project
+      </div>
+    </div>
+
+    <div class="msc-divider">◆ MSc LEVEL ◆</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">MSc Year 1 — Core Modules</div>
+      <div class="sidebar-item" onclick="showModule(18)" id="nav-18">
+        <span class="year-dot" style="background:var(--y4)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM010</span> Big Data Analysis
+      </div>
+      <div class="sidebar-item" onclick="showModule(19)" id="nav-19">
+        <span class="year-dot" style="background:var(--y4)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM020</span> Data Programming
+      </div>
+      <div class="sidebar-item" onclick="showModule(20)" id="nav-20">
+        <span class="year-dot" style="background:var(--y4)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM030</span> Stats & Data Mining
+      </div>
+      <div class="sidebar-item" onclick="showModule(21)" id="nav-21">
+        <span class="year-dot" style="background:var(--y4)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM040</span> Machine Learning
+      </div>
+      <div class="sidebar-item" onclick="showModule(22)" id="nav-22">
+        <span class="year-dot" style="background:var(--y4)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM120</span> Financial Data Modelling
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">MSc Year 2 — FinTech Specialist</div>
+      <div class="sidebar-item" onclick="showModule(23)" id="nav-23">
+        <span class="year-dot" style="background:var(--y5)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM070</span> Blockchain Programming
+      </div>
+      <div class="sidebar-item" onclick="showModule(24)" id="nav-24">
+        <span class="year-dot" style="background:var(--y5)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM080</span> Financial Markets
+      </div>
+      <div class="sidebar-item" onclick="showModule(25)" id="nav-25">
+        <span class="year-dot" style="background:var(--y5)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM150</span> Neural Networks
+      </div>
+      <div class="sidebar-item" onclick="showModule(26)" id="nav-26">
+        <span class="year-dot" style="background:var(--y5)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM140</span> Natural Language Processing
+      </div>
+      <div class="sidebar-item" onclick="showModule(27)" id="nav-27">
+        <span class="year-dot" style="background:var(--y5)"></span>
+        <span class="mod-num" style="font-size:0.55rem">DSM500</span> Final Project
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main id="mainContent">
+    <!-- OVERVIEW -->
+    <div id="view-overview">
+      <div class="overview-hero">
+        <div class="hero-badge">FREE · OPEN SOURCE · SELF-PACED · BSc + MSc</div>
+        <div class="hero-title">Open Data Science &amp;<br><em>FinTech University</em></div>
+        <p class="hero-desc">
+          A complete 5-year self-study curriculum spanning a full BSc (Years 1–3) and MSc (Years 4–5) in Data Science with FinTech specialisation.
+          28 modules, entirely free and open-access — from foundational mathematics to doctoral-adjacent research skills, probabilistic deep learning,
+          causal inference, LLMs, and a full dissertation. Structured to align with industry MSc Data Science standards and prepare you for
+          MSc research at Imperial College, UCL, and Royal Holloway.
+        </p>
+        <div class="equiv-row">
+          <div class="equiv-chip">
+            <strong>🎓 OU BSc Data Science</strong>
+            Years 1–3 equivalent
+          </div>
+          <div class="equiv-chip">
+            <strong>🎓 MSc Data Science</strong>
+            Years 4–5 equivalent
+          </div>
+          <div class="equiv-chip">
+            <strong>🎓 Imperial / UCL MSc</strong>
+            Full portfolio preparation
+          </div>
+          <div class="equiv-chip">
+            <strong>💷 Total Cost: £0</strong>
+            100% free resources
+          </div>
+        </div>
+      </div>
+
+      <div class="overview-section-label">🎓 BSc — Years 1 to 3</div>
+      <div class="overview-grid">
+        <div class="year-card y1" onclick="showModule(0)">
+          <div class="year-card-year">YEAR 01 · SEPT → JUNE</div>
+          <div class="year-card-title">Mathematical & Programming Foundations</div>
+          <div class="year-card-desc">Build the bedrock: calculus, linear algebra, Python, statistics, SQL and your first look at finance.</div>
+          <div class="year-card-modules">6 modules · ~10 hrs/week</div>
+        </div>
+        <div class="year-card y2" onclick="showModule(6)">
+          <div class="year-card-year">YEAR 02 · SEPT → JUNE</div>
+          <div class="year-card-title">Core Data Science & Financial Applications</div>
+          <div class="year-card-desc">Machine learning, time series, financial mathematics, data visualisation and cloud computing.</div>
+          <div class="year-card-modules">6 modules · ~12 hrs/week</div>
+        </div>
+        <div class="year-card y3" onclick="showModule(12)">
+          <div class="year-card-year">YEAR 03 · SEPT → JUNE</div>
+          <div class="year-card-title">FinTech Specialisation & Capstone</div>
+          <div class="year-card-desc">Deep learning, NLP for finance, risk modelling, algorithmic trading, RegTech and a BSc capstone project.</div>
+          <div class="year-card-modules">6 modules · ~14 hrs/week</div>
+        </div>
+      </div>
+
+      <div class="overview-section-label">🔬 MSc — Years 4 to 5 · Open DS-FinTech MSc</div>
+      <div class="overview-grid">
+        <div class="year-card y4" onclick="showModule(18)">
+          <div class="year-card-year">MSc YEAR 1 · CORE MODULES</div>
+          <div class="year-card-title">Open MSc Core — Data Science Foundations</div>
+          <div class="year-card-desc">The four core MSc modules: Big Data Analysis (DSM010), Data Programming in Python (DSM020), Statistics & Statistical Data Mining (DSM030), Machine Learning (DSM040), plus the FinTech core Financial Data Modelling (DSM120).</div>
+          <div class="year-card-modules">5 modules · ~15 hrs/week · 75 credits</div>
+        </div>
+        <div class="year-card y5" onclick="showModule(23)">
+          <div class="year-card-year">MSc YEAR 2 · FINTECH SPECIALIST</div>
+          <div class="year-card-title">Open MSc FinTech Specialist + Final Project</div>
+          <div class="year-card-desc">The FinTech-pathway compulsory and optional modules: Blockchain Programming (DSM070), Financial Markets (DSM080), Neural Networks (DSM150), NLP (DSM140), and the MSc Final Project (DSM500).</div>
+          <div class="year-card-modules">5 modules · ~18 hrs/week · 105 credits</div>
+        </div>
+      </div>
+
+      <div class="section-title">How to Use This Curriculum</div>
+      <div class="how-row">
+        <div class="how-card">
+          <div class="how-icon">📅</div>
+          <div class="how-title">Follow the sequence</div>
+          <div class="how-desc">Modules are ordered by dependency. Don't skip Year 1 — it underpins everything in Year 2 and 3.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">🔗</div>
+          <div class="how-title">Use the links</div>
+          <div class="how-desc">Every resource is free and auditable. Prioritise the starred (★) resources in each module first.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">🏗️</div>
+          <div class="how-title">Build projects</div>
+          <div class="how-desc">Each module has a capstone mini-project. These form your GitHub portfolio for MSc applications.</div>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">📝</div>
+          <div class="how-title">Document everything</div>
+          <div class="how-desc">Write blog posts or Jupyter notebooks explaining what you learned. Imperial/UCL love demonstrable evidence.</div>
+        </div>
+      </div>
+
+      <div class="section-title">Tools You'll Need (All Free)</div>
+      <div class="topics-grid">
+        <div class="topic-chip">Python 3 + Anaconda</div>
+        <div class="topic-chip">VS Code / Jupyter Lab</div>
+        <div class="topic-chip">Git + GitHub</div>
+        <div class="topic-chip">Google Colab (free GPU)</div>
+        <div class="topic-chip">Kaggle (datasets + kernels)</div>
+        <div class="topic-chip">PostgreSQL (local)</div>
+        <div class="topic-chip">Tableau Public</div>
+        <div class="topic-chip">Docker Desktop</div>
+        <div class="topic-chip">AWS Free Tier</div>
+        <div class="topic-chip">Overleaf (LaTeX reports)</div>
+        <div class="topic-chip">Obsidian (note-taking)</div>
+        <div class="topic-chip">Anki (spaced repetition)</div>
+      </div>
+
+      <div class="section-title">🔗 Key Free Learning Platforms</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.75rem;margin-bottom:2rem;">
+        <a href="https://ocw.mit.edu" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🎓</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">MIT OpenCourseWare</div><div style="font-size:0.72rem;color:var(--text-secondary)">ocw.mit.edu — Full university courses, free forever</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.coursera.org" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">📚</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Coursera (Audit Free)</div><div style="font-size:0.72rem;color:var(--text-secondary)">coursera.org — Click "Audit" on any course for free access</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.kaggle.com/learn" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🏋️</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Kaggle Learn</div><div style="font-size:0.72rem;color:var(--text-secondary)">kaggle.com/learn — Free hands-on micro-courses + GPU notebooks</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://course.fast.ai" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🚀</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">fast.ai</div><div style="font-size:0.72rem;color:var(--text-secondary)">course.fast.ai — Best practical ML/DL course, completely free</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.freecodecamp.org/learn" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">💻</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">freeCodeCamp</div><div style="font-size:0.72rem;color:var(--text-secondary)">freecodecamp.org — Free certifications in Python, data analysis, ML</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://huggingface.co/learn" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🤗</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Hugging Face Courses</div><div style="font-size:0.72rem;color:var(--text-secondary)">huggingface.co/learn — Free NLP, RL, and deep learning courses</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🎥</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">3Blue1Brown</div><div style="font-size:0.72rem;color:var(--text-secondary)">YouTube — Visual maths: linear algebra, calculus, neural networks</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@statquest" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">📊</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">StatQuest (Josh Starmer)</div><div style="font-size:0.72rem;color:var(--text-secondary)">YouTube — Best stats & ML explanations anywhere, completely free</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://arxiv.org/list/q-fin/recent" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">📄</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">arXiv — FinML Papers</div><div style="font-size:0.72rem;color:var(--text-secondary)">arxiv.org — Free pre-print research papers in quantitative finance & ML</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://cs50.harvard.edu" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🏛️</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Harvard CS50 Series</div><div style="font-size:0.72rem;color:var(--text-secondary)">cs50.harvard.edu — Free Harvard CS courses: Python, SQL, AI, Web</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://probml.github.io/pml-book/" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">📖</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Free Textbooks (Murphy, Bishop, Jurafsky)</div><div style="font-size:0.72rem;color:var(--text-secondary)">probml.github.io — Probabilistic ML, PRML, NLP textbooks — all free PDFs</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+        <a href="https://www.khanacademy.org/math" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div style="background:var(--navy-card);border:1px solid var(--navy-border);border-radius:10px;padding:1rem;display:flex;align-items:center;gap:12px;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#2dd4bf'" onmouseout="this.style.borderColor='var(--navy-border)'">
+            <div style="font-size:1.4rem">🧮</div>
+            <div><div style="font-weight:600;font-size:0.85rem;color:var(--text-primary)">Khan Academy — Maths</div><div style="font-size:0.72rem;color:var(--text-secondary)">khanacademy.org — Free mastery-based maths from algebra to multivariable calc</div></div>
+            <div style="margin-left:auto;background:var(--teal);color:var(--navy);font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;">OPEN ↗</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- MODULE VIEWS (generated by JS) -->
+    <div id="view-module" class="hidden">
+      <div id="moduleContent"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+const MODULES = [
+  // ─── YEAR 1 ───────────────────────────────────
+  {
+    num: "01", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Mathematics for Data Science",
+    duration: "10 weeks", effort: "8–10 hrs/week", credits: "60 OU equivalent",
+    desc: "The mathematical backbone of all data science. Covers linear algebra (vectors, matrices, eigenvalues), differential calculus (gradients, chain rule), integral calculus, and discrete mathematics. Without this, machine learning is a black box.",
+    topics: ["Vectors & Matrix Operations","Matrix Factorisation & SVD","Eigenvalues & Eigenvectors","Differential Calculus","Partial Derivatives & Gradients","Integral Calculus","Multivariable Calculus","Discrete Mathematics","Sequences & Series","Optimisation Theory"],
+    resources: [
+      { icon:"🎥", name:"3Blue1Brown — Essence of Linear Algebra", desc:"The most intuitive visual introduction to linear algebra that exists.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab" },
+      { icon:"🎥", name:"3Blue1Brown — Essence of Calculus", desc:"Beautifully animated calculus from first principles.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr" },
+      { icon:"📚", name:"MIT 18.06 — Linear Algebra (Gilbert Strang)", desc:"The gold standard university course, fully free on MIT OCW with full video lectures.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" },
+      { icon:"📚", name:"MIT 18.01 — Single Variable Calculus", desc:"Complete MIT calculus course with problem sets and exams.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-01-single-variable-calculus-fall-2006/" },
+      { icon:"📖", name:"Mathematics for Machine Learning (free PDF)", desc:"Cambridge textbook covering linear algebra, calculus and probability with ML applications.", type:"book", free:true, url:"https://mml-book.github.io/" },
+      { icon:"🖥️", name:"Khan Academy — Linear Algebra", desc:"Self-paced, mastery-based algebra from absolute beginner.", type:"course", free:true, url:"https://www.khanacademy.org/math/linear-algebra" },
+      { icon:"🖥️", name:"Khan Academy — Multivariable Calculus", desc:"Covers partial derivatives, gradients, vector fields essential for ML.", type:"course", free:true, url:"https://www.khanacademy.org/math/multivariable-calculus" },
+      { icon:"🏋️", name:"Brilliant.org — Linear Algebra", desc:"Interactive problem-solving approach. Free tier covers core material.", type:"practice", free:true, url:"https://brilliant.org/courses/linear-algebra/" },
+    ],
+    outcomes: ["Perform matrix multiplication and decompositions","Compute gradients for backpropagation","Understand optimisation landscapes","Apply calculus to cost functions","Translate ML papers' math notation"],
+    project: { title:"NumPy Linear Algebra Library", desc:"Build a mini NumPy-like matrix class in pure Python implementing dot products, transpose, inverse, and eigenvalue decomposition. Benchmark against NumPy. Publish on GitHub with a detailed README explaining the maths." }
+  },
+  {
+    num: "02", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Python Programming for Data Science",
+    duration: "10 weeks", effort: "10–12 hrs/week", credits: "60 OU equivalent",
+    desc: "Python is the lingua franca of data science. This module covers the language deeply — from basics through to OOP, functional patterns, and the full scientific stack: NumPy, Pandas, Matplotlib, and SciPy. You'll write production-quality, documented code.",
+    topics: ["Python Syntax & Data Types","Control Flow & Functions","OOP & Classes","Functional Python","NumPy Arrays & Broadcasting","Pandas DataFrames","Matplotlib & Seaborn","File I/O & APIs","Virtual Environments","Testing with Pytest"],
+    resources: [
+      { icon:"🎥", name:"Harvard CS50P — Introduction to Python", desc:"Harvard's own Python course. Excellent pacing, challenging problem sets, free certificate.", type:"course", free:true, url:"https://cs50.harvard.edu/python/2022/" },
+      { icon:"📖", name:"Python Data Science Handbook (free online)", desc:"Jake VanderPlas's comprehensive guide to NumPy, Pandas, Matplotlib, Scikit-learn.", type:"book", free:true, url:"https://jakevdp.github.io/PythonDataScienceHandbook/" },
+      { icon:"🖥️", name:"freeCodeCamp — Scientific Computing with Python", desc:"Structured curriculum with 5 certification projects, completely free.", type:"course", free:true, url:"https://www.freecodecamp.org/learn/scientific-computing-with-python/" },
+      { icon:"🎥", name:"Corey Schafer — Python OOP Tutorials", desc:"The clearest OOP explanations on YouTube. Essential for writing reusable DS code.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc" },
+      { icon:"🏋️", name:"Kaggle — Python & Pandas Micro-courses", desc:"Hands-on, project-based Python and Pandas courses with free Jupyter environments.", type:"practice", free:true, url:"https://www.kaggle.com/learn/python" },
+      { icon:"📖", name:"Automate the Boring Stuff with Python (free)", desc:"Practical automation projects — web scraping, PDFs, Excel, APIs. Available free online.", type:"book", free:true, url:"https://automatetheboringstuff.com/" },
+      { icon:"🏋️", name:"LeetCode — Easy Python problems", desc:"Practice algorithmic thinking with Python. Aim for 50 easy problems by end of module.", type:"practice", free:true, url:"https://leetcode.com/problemset/all/?difficulty=EASY&listId=wpwgkgt&page=1" },
+    ],
+    outcomes: ["Write clean, PEP8-compliant Python","Manipulate large datasets with Pandas","Perform numerical computing with NumPy","Visualise data with Matplotlib","Consume REST APIs in Python","Write unit tests for data pipelines"],
+    project: { title:"Financial Data Pipeline", desc:"Build a Python pipeline that pulls stock price data from Yahoo Finance API, cleans it with Pandas, computes moving averages and returns, and outputs a Matplotlib dashboard saved as PDF. Fully documented with type hints and docstrings." }
+  },
+  {
+    num: "03", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Statistics & Probability",
+    duration: "10 weeks", effort: "8–10 hrs/week", credits: "60 OU equivalent",
+    desc: "The language of uncertainty. Covers descriptive statistics, probability theory, distributions, hypothesis testing, Bayesian inference and regression. This is the theoretical engine behind every ML algorithm and financial risk model.",
+    topics: ["Descriptive Statistics","Probability Axioms","Conditional Probability & Bayes","Discrete Distributions","Continuous Distributions","Central Limit Theorem","Confidence Intervals","Hypothesis Testing","Linear Regression","Bayesian Inference"],
+    resources: [
+      { icon:"🎥", name:"StatQuest with Josh Starmer — Statistics", desc:"The absolute best statistics YouTube channel. Crystal-clear explanations with worked examples.", type:"video", free:true, url:"https://www.youtube.com/c/joshstarmer" },
+      { icon:"🖥️", name:"MIT 18.650 — Statistics for Applications", desc:"Full MIT lecture series covering classical and Bayesian statistics with problem sets.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/" },
+      { icon:"📖", name:"Think Stats 2e (free online)", desc:"Statistics with Python. Allen Downey's approachable textbook using real datasets.", type:"book", free:true, url:"https://greenteapress.com/thinkstats2/html/index.html" },
+      { icon:"📖", name:"Think Bayes 2e (free online)", desc:"Bayesian statistics with Python — computational rather than mathematical approach.", type:"book", free:true, url:"https://allendowney.github.io/ThinkBayes2/" },
+      { icon:"🖥️", name:"Khan Academy — Statistics & Probability", desc:"Comprehensive and self-paced from beginner to intermediate level.", type:"course", free:true, url:"https://www.khanacademy.org/math/statistics-probability" },
+      { icon:"🏋️", name:"Kaggle — Intro to Statistics", desc:"Hands-on statistics with Python and real datasets.", type:"practice", free:true, url:"https://www.kaggle.com/learn/intro-to-statistics" },
+      { icon:"🎥", name:"Harvard STAT110 — Probability", desc:"Full Harvard probability course on YouTube, with problem sets. Legendary course.", type:"course", free:true, url:"https://projects.iq.harvard.edu/stat110/home" },
+    ],
+    outcomes: ["Apply Bayes' theorem to real problems","Select appropriate statistical tests","Interpret p-values and effect sizes","Build and interpret linear regression","Simulate probability distributions in Python","Apply CLT to financial returns"],
+    project: { title:"Market Returns Statistical Analysis", desc:"Download 10 years of S&P 500 daily returns. Test normality assumptions, fit distributions (normal, t, log-normal), run bootstrap confidence intervals, and perform hypothesis tests comparing pre- and post-COVID return distributions. Full Jupyter notebook report." }
+  },
+  {
+    num: "04", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Databases & SQL",
+    duration: "8 weeks", effort: "7–9 hrs/week", credits: "40 OU equivalent",
+    desc: "Data lives in databases. Covers relational database design, SQL from basics to window functions, query optimisation, NoSQL with MongoDB, and the fundamentals of data warehousing. Essential for every data science role.",
+    topics: ["Relational Model & ERDs","SQL Syntax & Joins","Aggregations & GROUP BY","Subqueries & CTEs","Window Functions","Indexes & Query Optimisation","Stored Procedures","NoSQL & MongoDB","Data Warehousing Concepts","Python + SQL Integration"],
+    resources: [
+      { icon:"🖥️", name:"Mode Analytics SQL Tutorial", desc:"One of the best free SQL tutorials online. Practical, progressive, and covers advanced features.", type:"course", free:true, url:"https://mode.com/sql-tutorial/" },
+      { icon:"🖥️", name:"SQLZoo — Interactive SQL", desc:"Browser-based SQL practice with instant feedback. Great for cementing fundamentals.", type:"practice", free:true, url:"https://sqlzoo.net/wiki/SQL_Tutorial" },
+      { icon:"🎥", name:"freeCodeCamp — SQL Full Course (4 hours)", desc:"Comprehensive SQL course covering all major concepts with PostgreSQL.", type:"video", free:true, url:"https://www.youtube.com/watch?v=HXV3zeQKqGY" },
+      { icon:"🖥️", name:"CS50 SQL — Introduction to Databases", desc:"Harvard's dedicated SQL course. Rigorous, well-paced, free certificate.", type:"course", free:true, url:"https://cs50.harvard.edu/sql/2024/" },
+      { icon:"🏋️", name:"LeetCode — SQL Study Plan", desc:"50 SQL problems ranging from easy to hard. Interview prep and skills consolidation.", type:"practice", free:true, url:"https://leetcode.com/studyplan/top-sql-50/" },
+      { icon:"🎥", name:"MongoDB University — MongoDB Basics (M001)", desc:"Free official MongoDB course with exercises and certification.", type:"course", free:true, url:"https://learn.mongodb.com/learning-paths/introduction-to-mongodb" },
+    ],
+    outcomes: ["Design normalised relational schemas","Write complex SQL with CTEs and window functions","Optimise slow queries using EXPLAIN","Use Python to query databases","Design a basic data warehouse schema","Query MongoDB collections"],
+    project: { title:"Financial Transactions Database", desc:"Design and build a PostgreSQL database for a mock bank: accounts, transactions, customers, loans. Write SQL reports for monthly statements, fraud flagging (unusual transaction amounts), customer lifetime value, and branch performance. Export to Pandas for visualisation." }
+  },
+  {
+    num: "05", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Introduction to Finance & FinTech",
+    duration: "8 weeks", effort: "7–8 hrs/week", credits: "40 OU equivalent",
+    desc: "Before building FinTech products, you must understand finance. Covers corporate finance fundamentals, financial markets, banking, payments, lending, insurance, and the FinTech landscape including blockchain, open banking, and RegTech.",
+    topics: ["Time Value of Money","Financial Statements","Equity & Debt Markets","Banking & Credit","Payments & Settlement","Blockchain Fundamentals","Open Banking & APIs","InsurTech & WealthTech","RegTech Overview","FinTech Business Models"],
+    resources: [
+      { icon:"🖥️", name:"Yale — Financial Markets (Robert Shiller) on Coursera", desc:"Nobel laureate Shiller's legendary course. Audit free. Covers markets, behavioural finance, risk.", type:"course", free:true, url:"https://www.coursera.org/learn/financial-markets-global" },
+      { icon:"🎥", name:"Khan Academy — Finance & Capital Markets", desc:"Accessible finance fundamentals: stocks, bonds, derivatives, banking, mortgages.", type:"video", free:true, url:"https://www.khanacademy.org/economics-finance-domain/core-finance" },
+      { icon:"📖", name:"Principles of Finance — MIT OCW (free)", desc:"Full MIT undergraduate finance course with lecture notes, problem sets and exams.", type:"course", free:true, url:"https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/" },
+      { icon:"🎥", name:"freeCodeCamp — Blockchain & Crypto Explained", desc:"Clear technical introduction to blockchain, smart contracts and DeFi.", type:"video", free:true, url:"https://www.youtube.com/watch?v=qOVAbKKSH10" },
+      { icon:"📖", name:"The FinTech Book (preview chapters free)", desc:"Industry-standard FinTech overview covering payments, lending, blockchain, regulation.", type:"book", free:true, url:"https://www.thefintechbook.com/" },
+      { icon:"🖥️", name:"Coursera — FinTech Foundations (University of Hong Kong)", desc:"Comprehensive FinTech overview, audit free.", type:"course", free:true, url:"https://www.coursera.org/learn/fintech" },
+    ],
+    outcomes: ["Read and interpret financial statements","Understand how financial markets work","Explain open banking and PSD2","Describe blockchain and its financial applications","Identify FinTech business model categories","Understand financial regulation basics"],
+    project: { title:"FinTech Landscape Report", desc:"Research and write a 2,000-word Markdown/PDF report analysing a FinTech sector (e.g. Buy Now Pay Later, Robo-advisory, or DeFi). Cover market size, key players, regulatory challenges, data science use cases, and future outlook. Includes a data visualisation of market growth." }
+  },
+  {
+    num: "06", year: 1, color: "#3b82f6", bg: "rgba(59,130,246,0.1)",
+    title: "Data Wrangling & Exploratory Data Analysis",
+    duration: "8 weeks", effort: "8–10 hrs/week", credits: "40 OU equivalent",
+    desc: "80% of a data scientist's work is cleaning and understanding data. Covers the full EDA workflow: ingestion from multiple sources, handling missing data, outlier detection, feature engineering, and communicating findings through visualisation.",
+    topics: ["Data Ingestion (CSV, JSON, APIs, Web Scraping)","Handling Missing Data","Outlier Detection & Treatment","Feature Engineering","Pandas Advanced Operations","Merging & Reshaping Data","Visualisation for EDA","Feature Distributions","Correlation Analysis","Data Quality Assessment"],
+    resources: [
+      { icon:"📖", name:"Python for Data Analysis 3e (Wes McKinney)", desc:"Written by the creator of Pandas. Most comprehensive Pandas reference available, with free previews.", type:"book", free:true, url:"https://wesmckinney.com/book/" },
+      { icon:"🖥️", name:"Kaggle — Data Cleaning Micro-course", desc:"Hands-on cleaning techniques with real messy datasets and free cloud notebooks.", type:"practice", free:true, url:"https://www.kaggle.com/learn/data-cleaning" },
+      { icon:"🏋️", name:"Kaggle Datasets — Practice EDA notebooks", desc:"Browse 1000s of public datasets with community notebooks showing EDA approaches.", type:"practice", free:true, url:"https://www.kaggle.com/datasets" },
+      { icon:"🎥", name:"freeCodeCamp — Data Analysis with Python", desc:"Full project-based course: pandas, numpy, matplotlib for data wrangling and EDA.", type:"video", free:true, url:"https://www.youtube.com/watch?v=r-uOLxNrNk8" },
+      { icon:"📖", name:"Towards Data Science — EDA Guide", desc:"Community articles with hundreds of real-world EDA examples and patterns.", type:"docs", free:true, url:"https://towardsdatascience.com/exploratory-data-analysis/home" },
+      { icon:"🖥️", name:"Real Python — Working with APIs", desc:"Comprehensive guide to consuming REST APIs with Python requests library.", type:"docs", free:true, url:"https://realpython.com/api-integration-in-python/" },
+    ],
+    outcomes: ["Clean and validate real-world financial datasets","Engineer useful features from raw data","Detect and handle outliers appropriately","Perform correlation and distribution analysis","Present EDA findings clearly","Ingest data from multiple sources programmatically"],
+    project: { title:"Credit Card Fraud EDA", desc:"Use the Kaggle Credit Card Fraud dataset. Perform a full EDA: class imbalance analysis, transaction amount distributions by class, temporal patterns, correlation heatmap, and feature importance preview. Write a Jupyter notebook structured as a professional data science report." }
+  },
+
+  // ─── YEAR 2 ───────────────────────────────────
+  {
+    num: "07", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Machine Learning",
+    duration: "12 weeks", effort: "12–14 hrs/week", credits: "60 OU equivalent",
+    desc: "The centrepiece of data science. Covers the full supervised/unsupervised ML landscape: linear and logistic regression, decision trees, random forests, gradient boosting, SVMs, clustering, dimensionality reduction, and model evaluation. Implemented from scratch and with scikit-learn.",
+    topics: ["Bias-Variance Tradeoff","Linear & Logistic Regression","Decision Trees & Random Forests","Gradient Boosting (XGBoost, LightGBM)","Support Vector Machines","k-Nearest Neighbours","Clustering (k-Means, DBSCAN)","PCA & Dimensionality Reduction","Model Evaluation & Cross-Validation","Feature Selection & Regularisation"],
+    resources: [
+      { icon:"🎥", name:"StatQuest — Machine Learning Playlist", desc:"Josh Starmer explains every algorithm clearly with visual intuition. Essential companion.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" },
+      { icon:"🖥️", name:"fast.ai — Practical ML for Coders", desc:"Jeremy Howard's legendary bottom-up ML course. Free, practical, state-of-the-art.", type:"course", free:true, url:"https://course.fast.ai/" },
+      { icon:"🖥️", name:"Stanford CS229 — Machine Learning (Andrew Ng)", desc:"The original ML course with full lecture notes, problem sets and video lectures free on YouTube.", type:"course", free:true, url:"https://cs229.stanford.edu/" },
+      { icon:"📖", name:"Hands-On ML with Scikit-Learn & TensorFlow (free preview)", desc:"Aurélien Géron's practical ML bible. Jupyter notebooks available free on GitHub.", type:"book", free:true, url:"https://github.com/ageron/handson-ml3" },
+      { icon:"🏋️", name:"Kaggle — Intro to Machine Learning", desc:"Project-based ML course with Kaggle competitions for each concept.", type:"practice", free:true, url:"https://www.kaggle.com/learn/intro-to-machine-learning" },
+      { icon:"🏋️", name:"Kaggle Competitions — Tabular Playground", desc:"Regular tabular ML competitions with leaderboards and community notebooks.", type:"practice", free:true, url:"https://www.kaggle.com/competitions?hostSegment=playground" },
+      { icon:"📖", name:"Pattern Recognition & Machine Learning (Bishop) — free PDF", desc:"The rigorous probabilistic ML bible from Microsoft Research.", type:"book", free:true, url:"https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf" },
+    ],
+    outcomes: ["Implement core ML algorithms from scratch","Select appropriate algorithms for a problem","Tune hyperparameters with cross-validation","Interpret model outputs and feature importance","Handle class imbalance in financial data","Build an ML pipeline with scikit-learn"],
+    project: { title:"Credit Default Prediction Model", desc:"Use the Home Credit dataset on Kaggle. Build and compare 3 models (Logistic Regression, Random Forest, XGBoost). Handle class imbalance, engineer features, tune hyperparameters, and produce a model card documenting performance, fairness metrics, and business implications." }
+  },
+  {
+    num: "08", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Data Visualisation & Storytelling",
+    duration: "6 weeks", effort: "8–10 hrs/week", credits: "30 OU equivalent",
+    desc: "The ability to communicate data insights is as important as deriving them. Covers data visualisation theory (Tufte, Cairo), chart selection, interactive dashboards, and the narrative structure of data stories for technical and non-technical audiences.",
+    topics: ["Visualisation Theory & Principles","Chart Selection Framework","Matplotlib Deep Dive","Seaborn for Statistical Viz","Plotly & Interactive Charts","Dashboards with Streamlit","Tableau Public Basics","Colour Theory for Data","Narrative Data Storytelling","Financial Chart Types"],
+    resources: [
+      { icon:"🖥️", name:"Kaggle — Data Visualisation Micro-course", desc:"Hands-on seaborn and plotly with real datasets and instant feedback.", type:"practice", free:true, url:"https://www.kaggle.com/learn/data-visualization" },
+      { icon:"📖", name:"The Functional Art — Alberto Cairo (free chapter)", desc:"Essential theory on visual perception and chart design by the leading data viz academic.", type:"book", free:true, url:"http://www.thefunctionalart.com/" },
+      { icon:"🎥", name:"freeCodeCamp — Data Visualisation Certification", desc:"D3.js visualisation projects for the web. Five certification projects.", type:"course", free:true, url:"https://www.freecodecamp.org/learn/data-visualization/" },
+      { icon:"🖥️", name:"Streamlit Documentation & Gallery", desc:"Build interactive data apps in pure Python. Gallery shows real FinTech dashboards.", type:"docs", free:true, url:"https://streamlit.io/gallery" },
+      { icon:"🖥️", name:"Tableau Public Training", desc:"Free official Tableau training videos for the free Tableau Public version.", type:"course", free:true, url:"https://public.tableau.com/app/learn/how-to-videos" },
+      { icon:"📖", name:"Storytelling with Data (free blog)", desc:"Cole Nussbaumer Knaflic's practical guide to communicating with charts.", type:"docs", free:true, url:"https://www.storytellingwithdata.com/blog" },
+    ],
+    outcomes: ["Select the right chart for every data type","Build interactive dashboards with Streamlit","Create publication-quality plots with Matplotlib","Tell a coherent narrative with data","Apply colour theory to highlight key insights","Design a financial performance dashboard"],
+    project: { title:"FinTech Startup Dashboard", desc:"Build a Streamlit dashboard for a mock FinTech startup: monthly revenue, user growth, churn rate, geographic distribution, product funnel. Use Plotly for interactivity. Deploy free on Streamlit Cloud and add the link to your GitHub portfolio." }
+  },
+  {
+    num: "09", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Time Series Analysis",
+    duration: "8 weeks", effort: "10–12 hrs/week", credits: "40 OU equivalent",
+    desc: "Financial data is fundamentally temporal. Covers decomposition, stationarity, ARIMA and its variants, GARCH for volatility modelling, and modern ML approaches to time series forecasting. Directly applicable to price prediction, demand forecasting, and fraud detection.",
+    topics: ["Decomposition & Seasonality","Stationarity & ADF Tests","ARIMA & SARIMA","Exponential Smoothing","GARCH Volatility Models","Vector Autoregression (VAR)","Time Series ML (XGBoost, LightGBM)","Prophet by Facebook","Time Series Cross-Validation","Financial Returns Modelling"],
+    resources: [
+      { icon:"🎥", name:"StatQuest — Time Series Playlist", desc:"Clear visual explanations of ARIMA, stationarity, and autocorrelation.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLblh5JKOoLUIEr67xFl0qYKt5mHSGnYZX" },
+      { icon:"🖥️", name:"Forecasting: Principles and Practice (free online book)", desc:"Rob Hyndman's comprehensive forecasting textbook, fully free online. The standard reference.", type:"book", free:true, url:"https://otexts.com/fpp3/" },
+      { icon:"🖥️", name:"Kaggle — Time Series Course", desc:"Hands-on time series with Python, covering linear models, ML forecasting and hybrid approaches.", type:"practice", free:true, url:"https://www.kaggle.com/learn/time-series" },
+      { icon:"📖", name:"Prophet Documentation & Tutorials", desc:"Facebook/Meta's open-source forecasting tool with Python implementation guides.", type:"docs", free:true, url:"https://facebook.github.io/prophet/docs/quick_start.html" },
+      { icon:"🎥", name:"Ritvikmath — Time Series YouTube", desc:"Mathematical depth on ARIMA, GARCH, Kalman filters for financial applications.", type:"video", free:true, url:"https://www.youtube.com/c/ritvikmath" },
+      { icon:"🏋️", name:"Kaggle — M5 Forecasting Competition (notebooks)", desc:"Study top-scoring notebooks from the largest time series competition ever run.", type:"practice", free:true, url:"https://www.kaggle.com/c/m5-forecasting-accuracy/code" },
+    ],
+    outcomes: ["Test for and achieve stationarity","Identify ARIMA orders using ACF/PACF","Model financial volatility with GARCH","Forecast with ML-based time series models","Implement proper time series cross-validation","Explain model uncertainty in financial forecasts"],
+    project: { title:"Stock Price Volatility Forecaster", desc:"Select 5 FTSE 100 stocks. Fit ARIMA models for returns and GARCH for volatility. Compare against a Prophet model and an XGBoost model with lagged features. Evaluate with proper walk-forward validation. Present results in a Streamlit app showing forecasts with confidence intervals." }
+  },
+  {
+    num: "10", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Financial Mathematics & Quantitative Finance",
+    duration: "10 weeks", effort: "10–12 hrs/week", credits: "60 OU equivalent",
+    desc: "The mathematical bridge between finance theory and data science practice. Covers stochastic processes, options pricing (Black-Scholes), portfolio theory (Markowitz), the CAPM, factor models, and fixed income fundamentals.",
+    topics: ["Stochastic Processes & Brownian Motion","Itô's Lemma","Black-Scholes Options Pricing","Monte Carlo Methods","Portfolio Theory & Markowitz Optimisation","CAPM & Factor Models","Fixed Income & Duration","Value at Risk (VaR)","Expected Shortfall","Yield Curves & Interest Rate Models"],
+    resources: [
+      { icon:"🖥️", name:"MIT 18.S096 — Topics in Mathematics of Finance", desc:"MIT's dedicated mathematical finance course with full lecture notes, free.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/" },
+      { icon:"📖", name:"Options, Futures and Other Derivatives — Hull (summary notes)", desc:"John Hull's standard textbook. Free lecture notes and problem sets available online.", type:"book", free:true, url:"https://www-2.rotman.utoronto.ca/~hull/ofod/index.html" },
+      { icon:"🎥", name:"Patrick Boyle — Quantitative Finance YouTube", desc:"Ex-hedge fund manager covers quant finance, derivatives, and market microstructure clearly.", type:"video", free:true, url:"https://www.youtube.com/@PBoyle" },
+      { icon:"🖥️", name:"Quantopian/QuantConnect Lectures (archived)", desc:"Free quantitative finance lectures covering factor models, statistical arbitrage, risk management.", type:"course", free:true, url:"https://www.quantconnect.com/docs/v2/writing-algorithms/trading-and-orders/quantitative-strategies" },
+      { icon:"📖", name:"Python for Finance 2e — Yves Hilpisch (GitHub code)", desc:"All code for the O'Reilly book available free on GitHub. Covers options pricing to ML trading.", type:"book", free:true, url:"https://github.com/yhilpisch/py4fi2nd" },
+      { icon:"🎥", name:"CFA Institute — Free Learning Resources", desc:"Level 1 study materials and topic outlines free to access. Covers portfolio management.", type:"docs", free:true, url:"https://www.cfainstitute.org/en/programs/cfa/candidate-resources" },
+    ],
+    outcomes: ["Price European options with Black-Scholes","Run Monte Carlo simulations for derivatives","Optimise a portfolio using Markowitz framework","Compute VaR and Expected Shortfall","Explain CAPM and its limitations","Model yield curve dynamics"],
+    project: { title:"Portfolio Optimiser", desc:"Build a Python tool that downloads historical prices for 20+ assets, computes the efficient frontier using scipy.optimize, selects the max-Sharpe-ratio portfolio, and compares its out-of-sample performance against equal-weight and CAPM benchmarks. Visualise with interactive Plotly charts." }
+  },
+  {
+    num: "11", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Big Data & Cloud Computing",
+    duration: "8 weeks", effort: "10–12 hrs/week", credits: "40 OU equivalent",
+    desc: "Financial data is big data. Covers the Hadoop ecosystem, Spark for distributed computing, cloud platforms (AWS, GCP), data pipeline architectures, and stream processing. Learn to process datasets that don't fit in memory.",
+    topics: ["Big Data Concepts & CAP Theorem","Apache Spark & PySpark","Distributed Computing Architecture","AWS Core Services (S3, EC2, Lambda)","Cloud Data Warehouses (BigQuery, Redshift)","Data Pipeline Design","Apache Kafka (Streaming)","ETL vs ELT Patterns","Data Lake Architecture","Cost Optimisation in Cloud"],
+    resources: [
+      { icon:"🖥️", name:"AWS Cloud Practitioner Essentials (free)", desc:"Amazon's free official foundational cloud computing course with quizzes.", type:"course", free:true, url:"https://aws.amazon.com/training/learn-about/cloud-practitioner/" },
+      { icon:"🖥️", name:"Google Cloud — Data Engineering Path (free tier)", desc:"GCP's hands-on labs covering BigQuery, Dataflow, and Pub/Sub with free credits.", type:"course", free:true, url:"https://cloud.google.com/learn/training/data-engineering" },
+      { icon:"🎥", name:"freeCodeCamp — Apache Spark Tutorial", desc:"Full PySpark course covering RDDs, DataFrames, MLlib, and Streaming.", type:"video", free:true, url:"https://www.youtube.com/watch?v=_C8kWso4ne4" },
+      { icon:"🏋️", name:"Databricks — Spark Free Training", desc:"Official Databricks free courses on Apache Spark, Delta Lake, and MLflow.", type:"course", free:true, url:"https://www.databricks.com/learn/training/home" },
+      { icon:"📖", name:"Designing Data-Intensive Applications — Kleppmann (free chapter)", desc:"The definitive guide to data systems architecture. First chapter free, essential reading.", type:"book", free:true, url:"https://dataintensive.net/" },
+      { icon:"🎥", name:"freeCodeCamp — Docker & Kubernetes Full Course", desc:"Container orchestration for deploying data science applications at scale.", type:"video", free:true, url:"https://www.youtube.com/watch?v=kTp5xUtcalw" },
+    ],
+    outcomes: ["Process large datasets with PySpark","Design a data pipeline with AWS S3 and Lambda","Query a data warehouse with BigQuery","Understand Kafka stream processing","Design a data lake architecture","Explain CAP theorem trade-offs"],
+    project: { title:"Real-Time Transaction Processing Pipeline", desc:"Build a mini streaming pipeline: simulate financial transactions with Python, publish to a local Kafka topic, consume and process with PySpark Structured Streaming (flag suspicious transactions), and write results to a PostgreSQL sink. Document the architecture in a diagram." }
+  },
+  {
+    num: "12", year: 2, color: "#8b5cf6", bg: "rgba(139,92,246,0.1)",
+    title: "Software Engineering for Data Scientists",
+    duration: "6 weeks", effort: "8–10 hrs/week", credits: "30 OU equivalent",
+    desc: "Data scientists who can engineer production software are far more valuable. Covers Git workflows, REST API design with FastAPI, containerisation with Docker, MLOps fundamentals, and CI/CD pipelines. Transforms notebooks into deployable products.",
+    topics: ["Git & GitHub Workflows","RESTful API Design","FastAPI & Pydantic","Docker & Containerisation","Testing Strategies","CI/CD with GitHub Actions","Model Deployment Patterns","MLflow Experiment Tracking","Feature Stores","Monitoring in Production"],
+    resources: [
+      { icon:"🖥️", name:"The Odin Project — Web Development Foundations", desc:"Full-stack fundamentals that help data scientists build web interfaces for their models.", type:"course", free:true, url:"https://www.theodinproject.com/" },
+      { icon:"📖", name:"FastAPI Official Documentation & Tutorial", desc:"Complete FastAPI tutorial for building ML model APIs. Exceptionally well-written.", type:"docs", free:true, url:"https://fastapi.tiangolo.com/tutorial/" },
+      { icon:"🎥", name:"Fireship — Docker in 100 Seconds + Full Course", desc:"Fast, clear Docker introduction followed by a comprehensive hands-on tutorial.", type:"video", free:true, url:"https://www.youtube.com/watch?v=Gjnup-PuquQ" },
+      { icon:"🖥️", name:"MLflow — Open Source MLOps Platform", desc:"Official MLflow tutorials for experiment tracking, model registry, and deployment.", type:"docs", free:true, url:"https://mlflow.org/docs/latest/tutorials-and-examples/index.html" },
+      { icon:"🎥", name:"freeCodeCamp — GitHub Actions CI/CD", desc:"Full tutorial on automating testing and deployment pipelines with GitHub Actions.", type:"video", free:true, url:"https://www.youtube.com/watch?v=R8_veQiYBjI" },
+      { icon:"📖", name:"Made with ML — MLOps Guide", desc:"Comprehensive free MLOps course covering production ML systems end-to-end.", type:"course", free:true, url:"https://madewithml.com/" },
+    ],
+    outcomes: ["Manage code with Git branching strategies","Build and deploy a FastAPI ML endpoint","Containerise a data science application with Docker","Track experiments with MLflow","Write CI/CD pipelines with GitHub Actions","Monitor a deployed model for drift"],
+    project: { title:"ML Model as a Production API", desc:"Take your credit default model from Module 7, wrap it in a FastAPI app with Pydantic validation, containerise with Docker, add unit tests, set up GitHub Actions to run tests on every push, and deploy to free hosting (Render/Railway). Add MLflow for experiment tracking." }
+  },
+
+  // ─── YEAR 3 ───────────────────────────────────
+  {
+    num: "13", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "Deep Learning",
+    duration: "12 weeks", effort: "14–16 hrs/week", credits: "60 OU equivalent",
+    desc: "Neural networks at depth. Covers the theory and practice of deep learning: feedforward networks, CNNs, RNNs, LSTMs, attention mechanisms, transformers, and generative models. Focus on financial applications: price prediction, anomaly detection, and document understanding.",
+    topics: ["Neural Network Fundamentals","Backpropagation & Gradient Descent","Convolutional Neural Networks","Recurrent Networks & LSTMs","Attention & Self-Attention","Transformer Architecture","Transfer Learning & Fine-Tuning","Autoencoders","Generative Adversarial Networks","PyTorch & TensorFlow"],
+    resources: [
+      { icon:"🖥️", name:"fast.ai — Practical Deep Learning for Coders", desc:"The best practical DL course in existence. Free, uses PyTorch, top-down approach.", type:"course", free:true, url:"https://course.fast.ai/" },
+      { icon:"🖥️", name:"DeepLearning.AI Specialisation (Coursera — audit free)", desc:"Andrew Ng's comprehensive 5-course deep learning specialisation. Audit all courses free.", type:"course", free:true, url:"https://www.coursera.org/specializations/deep-learning" },
+      { icon:"📖", name:"Dive into Deep Learning — d2l.ai (free textbook)", desc:"Interactive deep learning textbook with full code in PyTorch. Used by hundreds of universities.", type:"book", free:true, url:"https://d2l.ai/" },
+      { icon:"🎥", name:"Andrej Karpathy — Neural Networks: Zero to Hero", desc:"Build a GPT from scratch. Karpathy's masterclass is essential viewing for any serious DL practitioner.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" },
+      { icon:"🏋️", name:"Kaggle — Intro to Deep Learning", desc:"Hands-on DL with Keras and TensorFlow, Kaggle competitions for each lesson.", type:"practice", free:true, url:"https://www.kaggle.com/learn/intro-to-deep-learning" },
+      { icon:"📖", name:"PyTorch Official Tutorials", desc:"Official PyTorch documentation with end-to-end tutorials covering all key DL architectures.", type:"docs", free:true, url:"https://pytorch.org/tutorials/" },
+      { icon:"🎥", name:"MIT 6.S191 — Introduction to Deep Learning", desc:"MIT's annual DL course with full lecture videos, labs, and project competition.", type:"course", free:true, url:"http://introtodeeplearning.com/" },
+    ],
+    outcomes: ["Implement neural networks in PyTorch from scratch","Apply CNNs to document classification","Build LSTM models for financial forecasting","Understand the transformer architecture","Fine-tune pre-trained models for finance tasks","Detect anomalies with autoencoders"],
+    project: { title:"Fraud Detection with Autoencoders", desc:"Build a deep learning fraud detection system using autoencoders to learn normal transaction patterns and flag anomalies. Compare against a supervised LSTM classifier. Implement in PyTorch, track experiments with MLflow, and deploy as a FastAPI endpoint. Write a technical report." }
+  },
+  {
+    num: "14", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "NLP for Finance",
+    duration: "10 weeks", effort: "12–14 hrs/week", credits: "60 OU equivalent",
+    desc: "Natural language is the native language of finance: earnings calls, news, filings, analyst reports, social media. Covers text preprocessing, classical NLP, transformer models (BERT, FinBERT, GPT), sentiment analysis, named entity recognition, and large language model APIs.",
+    topics: ["Text Preprocessing & Tokenisation","TF-IDF & Word Embeddings","Sentiment Analysis","Named Entity Recognition","Transformer Architecture (BERT)","FinBERT & Finance-specific Models","Zero-shot & Few-shot Learning","LLM APIs (OpenAI/Anthropic)","Earnings Call Analysis","Regulatory Document Parsing"],
+    resources: [
+      { icon:"🖥️", name:"Hugging Face NLP Course (free)", desc:"The definitive transformer NLP course from the creators of the Transformers library. Fully free.", type:"course", free:true, url:"https://huggingface.co/learn/nlp-course/chapter1/1" },
+      { icon:"🎥", name:"Stanford CS224N — NLP with Deep Learning", desc:"Full Stanford NLP course, video lectures on YouTube, assignments on GitHub.", type:"course", free:true, url:"https://web.stanford.edu/class/cs224n/" },
+      { icon:"📖", name:"Speech and Language Processing — Jurafsky & Martin (free PDF)", desc:"The comprehensive academic NLP textbook, 3rd edition draft free online.", type:"book", free:true, url:"https://web.stanford.edu/~jurafsky/slp3/" },
+      { icon:"🏋️", name:"Kaggle — NLP with Disaster Tweets Competition", desc:"Classic entry NLP competition with hundreds of public notebooks to learn from.", type:"practice", free:true, url:"https://www.kaggle.com/c/nlp-getting-started" },
+      { icon:"🖥️", name:"FinBERT — Financial Sentiment Analysis", desc:"Pre-trained BERT model for financial sentiment. Documentation and notebooks on GitHub.", type:"docs", free:true, url:"https://huggingface.co/ProsusAI/finbert" },
+      { icon:"📖", name:"LangChain Documentation & Tutorials", desc:"Framework for building LLM-powered applications. Full docs and cookbook tutorials free.", type:"docs", free:true, url:"https://python.langchain.com/docs/tutorials/" },
+    ],
+    outcomes: ["Preprocess financial text data at scale","Fine-tune FinBERT for sentiment classification","Extract financial entities with NER","Analyse earnings call transcripts","Build an LLM-powered financial Q&A system","Classify SEC filings by risk level"],
+    project: { title:"Earnings Call Sentiment Analyser", desc:"Scrape or use a dataset of S&P 500 earnings call transcripts. Fine-tune FinBERT for bullish/bearish sentiment per paragraph. Correlate sentiment scores with next-day stock returns. Build a Streamlit app that accepts a new transcript and outputs a sentiment dashboard and return prediction." }
+  },
+  {
+    num: "15", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "Financial Risk Modelling",
+    duration: "8 weeks", effort: "12–14 hrs/week", credits: "40 OU equivalent",
+    desc: "Risk is the core concept of finance. Covers market risk, credit risk, and operational risk modelling. Deep dives into VaR methodologies, stressed testing, credit scoring, Basel III/IV requirements, Expected Credit Loss (ECL/IFRS 9), and explainable AI for credit decisions.",
+    topics: ["Market Risk (VaR, ES, Greeks)","Historical & Monte Carlo VaR","Credit Scoring Models","Probability of Default Models","Loss Given Default","IFRS 9 Expected Credit Loss","Stress Testing Frameworks","Operational Risk Modelling","Model Risk Management","Explainable AI for Credit (SHAP)"],
+    resources: [
+      { icon:"📖", name:"Risk Management and Financial Institutions — Hull", desc:"John Hull's risk management textbook. Free lecture notes on his website.", type:"book", free:true, url:"https://www-2.rotman.utoronto.ca/~hull/riskman/index.html" },
+      { icon:"🎥", name:"Patrick Boyle — Risk & Derivatives YouTube", desc:"Professional-grade risk management explanations from an ex-hedge fund manager.", type:"video", free:true, url:"https://www.youtube.com/@PBoyle" },
+      { icon:"🖥️", name:"Global Association of Risk Professionals — Free Resources", desc:"GARP's free study materials for FRM. Covers all risk categories at professional level.", type:"docs", free:true, url:"https://www.garp.org/frm/free-resources" },
+      { icon:"📖", name:"SHAP Documentation & Tutorials", desc:"Explainable ML library essential for regulatory compliance in credit decisions.", type:"docs", free:true, url:"https://shap.readthedocs.io/en/latest/example_notebooks/overviews/An%20introduction%20to%20explainable%20AI%20with%20Shapley%20values.html" },
+      { icon:"🎥", name:"QuantLib Python Tutorials", desc:"Open-source quantitative finance library tutorials covering risk modelling.", type:"docs", free:true, url:"https://quantlib-python-docs.readthedocs.io/en/latest/" },
+      { icon:"🖥️", name:"BIS — Basel III Papers (free)", desc:"Bank for International Settlements' original Basel III documents — primary regulatory source.", type:"docs", free:true, url:"https://www.bis.org/bcbs/basel3.htm" },
+    ],
+    outcomes: ["Compute historical and parametric VaR","Build a credit scoring model with SHAP explanations","Implement an IFRS 9 ECL model","Design a stress testing framework","Explain model outputs to regulators","Understand Basel III capital requirements"],
+    project: { title:"Credit Risk Scorecard with IFRS 9 ECL", desc:"Using the Lending Club or German Credit dataset, build a full credit risk system: logistic regression scorecard (Weight of Evidence + IV), PD/LGD/EAD models, IFRS 9 staging, and SHAP explanations for each decision. Write a model documentation report suitable for a risk committee." }
+  },
+  {
+    num: "16", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "Algorithmic Trading & Quantitative Strategies",
+    duration: "10 weeks", effort: "12–14 hrs/week", credits: "60 OU equivalent",
+    desc: "The intersection of quant finance, data science, and software engineering. Covers backtesting methodology, factor investing, statistical arbitrage, momentum and mean reversion strategies, execution algorithms, transaction costs, and reinforcement learning for trading.",
+    topics: ["Backtesting Methodology & Pitfalls","Factor Investing (Fama-French)","Momentum & Mean Reversion","Pairs Trading & Cointegration","Market Microstructure","Execution Algorithms (TWAP/VWAP)","Transaction Cost Analysis","Alternative Data Sources","Reinforcement Learning for Trading","Strategy Evaluation Metrics"],
+    resources: [
+      { icon:"🖥️", name:"QuantConnect — Free Algorithmic Trading Platform", desc:"Cloud-based backtesting with free access to historical data. C# and Python. Community examples.", type:"practice", free:true, url:"https://www.quantconnect.com/learning/articles/introduction-to-financial-python" },
+      { icon:"📖", name:"Advances in Financial Machine Learning — López de Prado (GitHub code)", desc:"The seminal ML in trading book. Code available free on GitHub. Covers feature engineering, backtesting.", type:"book", free:true, url:"https://github.com/hudson-and-thames/mlfinlab" },
+      { icon:"🎥", name:"Algorithmic Trading — Udacity (free content)", desc:"Udacity's free portions cover time series, regression, ETFs and portfolio optimisation.", type:"course", free:true, url:"https://www.udacity.com/course/ai-for-trading--nd880" },
+      { icon:"🖥️", name:"Backtrader Documentation", desc:"Popular Python backtesting library with comprehensive tutorials and examples.", type:"docs", free:true, url:"https://www.backtrader.com/docu/" },
+      { icon:"🎥", name:"QuantInsti — Free Python for Trading", desc:"Free blog and YouTube content covering algorithmic trading strategies in Python.", type:"video", free:true, url:"https://blog.quantinsti.com/python-trading/" },
+      { icon:"🏋️", name:"Kaggle — Jane Street Market Prediction (notebooks)", desc:"Study top solutions from the landmark market prediction Kaggle competition.", type:"practice", free:true, url:"https://www.kaggle.com/c/jane-street-market-prediction/code" },
+    ],
+    outcomes: ["Design and backtest a trading strategy without look-ahead bias","Implement pairs trading with cointegration","Compute Sharpe, Sortino, and Calmar ratios","Build a momentum factor portfolio","Understand market microstructure and execution costs","Apply basic RL to a trading environment"],
+    project: { title:"Systematic Trading Strategy Backtest", desc:"Develop a multi-factor equity strategy: momentum + quality + low volatility factors on FTSE 350 or S&P 500 using free Stooq/yfinance data. Backtest with proper walk-forward validation, account for transaction costs, and produce a strategy tearsheet with all standard metrics. Compare to buy-and-hold benchmark." }
+  },
+  {
+    num: "17", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "RegTech, Compliance & AI Ethics",
+    duration: "6 weeks", effort: "8–10 hrs/week", credits: "30 OU equivalent",
+    desc: "AI in finance is regulated. Covers GDPR, the EU AI Act, FCA regulation of AI, PSD2 & open banking compliance, anti-money laundering (AML) systems, Know Your Customer (KYC) automation, model governance, and AI fairness and bias in financial decisions.",
+    topics: ["GDPR & Data Privacy in Finance","EU AI Act & Financial Services","FCA Principles for AI","AML Transaction Monitoring","KYC Automation with ML","PSD2 & Open Banking","Model Governance Frameworks","Algorithmic Fairness Metrics","Bias Detection in Credit Models","Ethical AI in Finance"],
+    resources: [
+      { icon:"📖", name:"FCA — AI in Financial Services Guidance (free)", desc:"FCA's official discussion papers on AI regulation. Primary source, essential reading.", type:"docs", free:true, url:"https://www.fca.org.uk/publications/feedback-statements/ai-and-machine-learning" },
+      { icon:"📖", name:"EU AI Act — Official Text (free)", desc:"The full EU AI Act text, understanding the regulatory environment your models must comply with.", type:"docs", free:true, url:"https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689" },
+      { icon:"🖥️", name:"AI Fairness 360 — IBM Toolkit (tutorials)", desc:"Open-source Python library for detecting and mitigating bias in ML models.", type:"docs", free:true, url:"https://aif360.res.ibm.com/" },
+      { icon:"🖥️", name:"Coursera — Trustworthy AI (audit free)", desc:"IBM's course on responsible AI covering fairness, explainability, robustness, and privacy.", type:"course", free:true, url:"https://www.coursera.org/learn/trustworthy-ai" },
+      { icon:"🎥", name:"freeCodeCamp — GDPR Explained", desc:"Clear GDPR overview covering data controller obligations, subject rights, and breach notifications.", type:"video", free:true, url:"https://www.youtube.com/watch?v=Assdm6fIHlE" },
+      { icon:"📖", name:"FATF — AML Guidance Documents (free)", desc:"Financial Action Task Force's official guidance on AML, CFT, and risk-based approaches.", type:"docs", free:true, url:"https://www.fatf-gafi.org/en/publications/Fatfrecommendations.html" },
+    ],
+    outcomes: ["Apply GDPR principles to a data science pipeline","Audit an ML model for bias under FCA principles","Design an AML transaction monitoring system","Explain the EU AI Act risk tiers","Implement fairness constraints in credit scoring","Write a model governance policy document"],
+    project: { title:"Fairness Audit of a Credit Model", desc:"Take your credit scoring model from Module 15. Perform a full fairness audit: measure demographic parity, equal opportunity, and calibration across protected groups using AIF360. Apply mitigation techniques and document the trade-offs. Write a regulatory-style model validation report as if submitted to the FCA." }
+  },
+  {
+    num: "18", year: 3, color: "#10b981", bg: "rgba(16,185,129,0.1)",
+    title: "Capstone Project",
+    duration: "16 weeks", effort: "15–18 hrs/week", credits: "120 OU equivalent",
+    desc: "Your dissertation equivalent. An end-to-end data science project in the FinTech domain of your choice, demonstrating every skill from all three years. This becomes the centrepiece of your portfolio for MSc applications to Imperial, UCL, or Royal Holloway.",
+    topics: ["Research Question Formulation","Literature Review","Data Engineering Pipeline","Model Development & Evaluation","MLOps Deployment","Business Impact Analysis","Technical Writing","Presentation & Defence","Portfolio Documentation","Open Source Publication"],
+    resources: [
+      { icon:"🏋️", name:"Kaggle — Financial ML Competitions", desc:"Enter a live Kaggle competition for your capstone. Leaderboard position is impressive evidence.", type:"practice", free:true, url:"https://www.kaggle.com/competitions?tags=14102" },
+      { icon:"📖", name:"arXiv — FinML Papers", desc:"Read recent research papers in your chosen area and cite them in your literature review.", type:"docs", free:true, url:"https://arxiv.org/list/q-fin/recent" },
+      { icon:"🖥️", name:"Papers with Code — Finance", desc:"State-of-the-art ML results with code for financial applications.", type:"docs", free:true, url:"https://paperswithcode.com/task/financial-forecasting" },
+      { icon:"📖", name:"Overleaf — Free LaTeX Report Template", desc:"Write your capstone report in professional LaTeX, as used in academic submissions.", type:"docs", free:true, url:"https://www.overleaf.com/latex/templates/tagged/academic-journal" },
+      { icon:"🖥️", name:"GitHub — Portfolio README Guide", desc:"Make your GitHub portfolio compelling for MSc admissions committees.", type:"docs", free:true, url:"https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme" },
+      { icon:"🎥", name:"How to Write a Research Paper (YouTube — Simon Clark)", desc:"Clear guide to structuring and writing academic papers for your technical report.", type:"video", free:true, url:"https://www.youtube.com/watch?v=YQiJ_Z4AAGY" },
+    ],
+    outcomes: ["Deliver a complete end-to-end DS project","Write a professional technical report","Deploy a production-quality ML system","Present and defend your methodology","Publish an open-source repository","Build a compelling MSc application portfolio"],
+    project: { title:"Your BSc Capstone", desc:"Choose ONE of: (1) Robo-advisor using modern portfolio theory + ML return forecasting + risk profiling chatbot. (2) Real-time AML system with streaming data, graph neural networks for network analysis, and explainable alerts. (3) Options pricing and hedging engine combining Black-Scholes with deep learning corrections. (4) Open banking personal finance app with ML-driven spending insights and savings recommendations. Produce: GitHub repo, technical report, deployed app, and a 10-min recorded presentation." }
+  },
+
+  // ─── MSc YEAR 1 — Core Modules ──────────────────────────
+  {
+    num: "DSM010", year: 4, color: "#f59e0b", bg: "rgba(245,158,11,0.1)",
+    title: "Big Data Analysis",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (MSc Core)",
+    desc: "Big Data is a cornerstone of contemporary Data Science. This module — one of the four compulsory core modules of this Open MSc — covers the technology and methods for working with Big Data computing resources, alongside the conceptual context of how Big Data relates to statistics and computing. You will work with distributed file systems, SQL and NoSQL databases, and Python-based data pipelines. This is a deeper and more production-oriented treatment than the BSc Year 2 Big Data module — aligned with industry MSc standards.",
+    topics: ["Big Data Concepts & the 4 Vs","Distributed File Systems (HDFS)","MapReduce Paradigm","Apache Hadoop Ecosystem","SQL vs NoSQL at Scale","MongoDB & Cassandra","Data Processing Pipelines in Python","Privacy & Security in Big Data","Cloud-Based Big Data (AWS EMR, GCP Dataproc)","Business & Scientific Big Data Applications"],
+    resources: [
+      { icon:"🖥️", name:"Hadoop: The Definitive Guide — free chapters (O'Reilly)", desc:"The standard Hadoop reference with free preview chapters. Covers HDFS, MapReduce, YARN.", type:"book", free:true, url:"https://www.oreilly.com/library/view/hadoop-the-definitive/9781491901687/" },
+      { icon:"🎥", name:"freeCodeCamp — Big Data with Python Full Course", desc:"Comprehensive big data processing in Python covering Spark, Dask, and Hadoop.", type:"video", free:true, url:"https://www.youtube.com/watch?v=GW3eKbMzT3E" },
+      { icon:"🖥️", name:"Google Cloud — BigQuery free tier tutorials", desc:"Hands-on big data analysis using BigQuery with free credits and official guided tutorials.", type:"course", free:true, url:"https://cloud.google.com/bigquery/docs/tutorials" },
+      { icon:"🏋️", name:"Databricks Community Edition — free Spark platform", desc:"Free cloud Spark environment from Databricks with guided learning paths for big data analytics.", type:"practice", free:true, url:"https://community.cloud.databricks.com" },
+      { icon:"📖", name:"MongoDB University — M001 to M320 (free)", desc:"Official free MongoDB courses from basics to data modelling and aggregation pipelines.", type:"course", free:true, url:"https://learn.mongodb.com/catalog" },
+      { icon:"🖥️", name:"AWS Academy — Cloud Foundations (free)", desc:"Free AWS course covering S3, EC2, RDS and core cloud services used in big data pipelines.", type:"course", free:true, url:"https://aws.amazon.com/training/awsacademy/" },
+    ],
+    outcomes: ["Design and run distributed data processing pipelines","Query NoSQL and SQL databases at scale","Process big data with PySpark and Hadoop","Analyse privacy and security implications of big data","Build Python data pipelines for business applications","Evaluate cloud-based big data architectures"],
+    project: { title:"Financial Big Data Pipeline (MSc DSM010 Project)", desc:"Build a full big data pipeline for a financial application: ingest a large dataset (e.g., NYSE trade-and-quote data or SEC EDGAR filings) into a local Hadoop/Spark environment or Databricks free tier. Design a MongoDB schema for tick data. Write PySpark jobs for aggregation, anomaly detection, and reporting. Produce a written report (2,500 words) in a professional academic format, with a data pipeline diagram and security/privacy analysis." }
+  },
+  {
+    num: "DSM020", year: 4, color: "#f59e0b", bg: "rgba(245,158,11,0.1)",
+    title: "Data Programming in Python",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (MSc Core)",
+    desc: "A core MSc module that builds production-grade Python skills for data science. At MSc level this goes well beyond BSc Python — you will master professional software engineering practices, advanced data structures, complex data processing pipelines, mathematical/statistical procedures, and the full scientific Python stack used across the rest of the programme. It is strongly recommended to take this as your first MSc module.",
+    topics: ["Advanced Python Data Structures","Object-Oriented Design Patterns","Functional Programming in Python","Complex Data Processing Pipelines","NumPy Advanced Operations","Pandas: Complex Merges, Reshape, MultiIndex","Matplotlib & Plotly for Publication Plots","REST API Consumption & Web Scraping","Testing, Debugging & Profiling","Jupyter & IPython Best Practices"],
+    resources: [
+      { icon:"📖", name:"Python Data Science Handbook (free online) — VanderPlas", desc:"Comprehensive coverage of the scientific Python stack: NumPy, Pandas, Matplotlib, Scikit-learn.", type:"book", free:true, url:"https://jakevdp.github.io/PythonDataScienceHandbook/" },
+      { icon:"🖥️", name:"Real Python — Advanced Python tutorials (free tier)", desc:"In-depth tutorials on decorators, generators, context managers, and design patterns.", type:"docs", free:true, url:"https://realpython.com/" },
+      { icon:"🏋️", name:"Kaggle — Python & Pandas advanced micro-courses", desc:"Hands-on notebooks for advanced Pandas operations and complex data transformations.", type:"practice", free:true, url:"https://www.kaggle.com/learn/pandas" },
+      { icon:"📖", name:"Python for Data Analysis 3e — Wes McKinney (free online)", desc:"Written by the creator of Pandas. The deepest reference for professional data processing in Python.", type:"book", free:true, url:"https://wesmckinney.com/book/" },
+      { icon:"🖥️", name:"Codecademy — Learn Intermediate Python 3 (free)", desc:"Covers decorators, lambdas, generators, classes, and file processing — all at MSc level.", type:"course", free:true, url:"https://www.codecademy.com/learn/learn-intermediate-python-3" },
+      { icon:"🎥", name:"Arjan Codes — Python Software Design Patterns (YouTube)", desc:"Professional software engineering patterns in Python applied to data science projects.", type:"video", free:true, url:"https://www.youtube.com/@ArjanCodes" },
+    ],
+    outcomes: ["Write professional PEP8-compliant, documented Python","Build complex multi-stage data processing pipelines","Apply OOP patterns to data science code","Work with all major scientific Python libraries","Create publication-quality data visualisations","Automate data collection from APIs and the web"],
+    project: { title:"MSc-Level Financial Data Processing System (DSM020 style)", desc:"Build a comprehensive Python data system: (1) scrape financial data from multiple sources (Yahoo Finance, FRED, SEC EDGAR APIs), (2) design a class-based data pipeline with validation, logging, and error handling, (3) produce a Pandas-powered financial analysis dashboard covering returns, correlations, rolling statistics, and sector comparisons. Include a full test suite with pytest. Matches industry MSc-level coursework submission standards." }
+  },
+  {
+    num: "DSM030", year: 4, color: "#f59e0b", bg: "rgba(245,158,11,0.1)",
+    title: "Statistics and Statistical Data Mining",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (MSc Core)",
+    desc: "Statistics is one of the cornerstones of reasoning in Data Science. This core MSc module builds rigorous statistical understanding — probability theory, likelihood, distributions, hypothesis testing, parametric and non-parametric tests, and statistical data mining techniques including clustering and dimensionality reduction. Assessed by a mixture of coursework (50%) and written exam (50%).",
+    topics: ["Probability Theory & Axioms","Likelihood & Maximum Likelihood Estimation","Common Statistical Distributions","Confidence Intervals","Hypothesis Testing (Parametric & Non-Parametric)","ANOVA & Regression","Principal Component Analysis","Cluster Analysis (k-Means, Hierarchical)","Association Rule Mining","Statistical Validation & Cross-Validation"],
+    resources: [
+      { icon:"🎥", name:"StatQuest with Josh Starmer — full playlist", desc:"The clearest statistics channel on YouTube. Every test and concept explained with perfect clarity.", type:"video", free:true, url:"https://www.youtube.com/c/joshstarmer" },
+      { icon:"📖", name:"Think Stats 2e — Allen Downey (free online)", desc:"Statistics in Python with real datasets. Directly maps to the computational component of DSM030.", type:"book", free:true, url:"https://greenteapress.com/thinkstats2/html/index.html" },
+      { icon:"🖥️", name:"MIT 18.650 — Statistics for Applications (free OCW)", desc:"Full MIT graduate statistics course with lecture notes, problem sets, and exams.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-650-statistics-for-applications-fall-2016/" },
+      { icon:"🏋️", name:"Scipy Stats — official tutorial and documentation", desc:"Python statistical testing library — the tool used in DSM030 assessments.", type:"docs", free:true, url:"https://docs.scipy.org/doc/scipy/reference/stats.html" },
+      { icon:"📖", name:"Introduction to Statistical Learning (ISLR) — free PDF", desc:"The definitive applied statistics and statistical learning textbook. Free PDF from the authors.", type:"book", free:true, url:"https://www.statlearning.com/" },
+      { icon:"🖥️", name:"Khan Academy — Statistics and Probability", desc:"Self-paced from basics to inference. Good for solidifying foundations before the exam component.", type:"course", free:true, url:"https://www.khanacademy.org/math/statistics-probability" },
+    ],
+    outcomes: ["Apply maximum likelihood estimation","Select and perform appropriate hypothesis tests","Interpret confidence intervals correctly","Apply PCA for dimensionality reduction","Implement k-means clustering for data mining","Write statistics-heavy coursework and pass timed exam"],
+    project: { title:"Statistical Data Mining Report (DSM030 coursework style)", desc:"Using a real financial dataset (e.g., World Bank financial indicators, credit card dataset), apply the full statistical data mining workflow: descriptive statistics, distribution fitting, hypothesis tests comparing groups, PCA to reduce dimensions, k-means clustering to segment customers. Write a 3,000-word academic report: abstract, method, results, discussion, and bibliography. Prepare a summary for the written exam." }
+  },
+  {
+    num: "DSM040", year: 4, color: "#f59e0b", bg: "rgba(245,158,11,0.1)",
+    title: "Machine Learning",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (MSc Core)",
+    desc: "One of the four core modules of this MSc. A comprehensive treatment of machine learning covering supervised and unsupervised methods, theoretical foundations, and practical applications. This MSc module goes deeper than the BSc ML module — expect rigorous theory on bias-variance, VC dimension, kernel methods, and Bayesian approaches. Assessed entirely by coursework (50% + 50%).",
+    topics: ["Bayesian vs Frequentist Learning","Generative vs Discriminative Models","Parametric & Non-Parametric Methods","Naive Bayes Classifier","Support Vector Machines & Kernels","Ensemble Methods: Boosting & Bagging","VC Dimension & PAC Learning","Unsupervised Learning: k-Means, GMMs","Dimensionality Reduction: PCA, t-SNE, UMAP","ML Theory: Bias, Variance, Regularisation"],
+    resources: [
+      { icon:"📖", name:"Pattern Recognition & Machine Learning — Bishop (free PDF)", desc:"The rigorous probabilistic ML bible used at MSc/PhD level. Directly aligns with DSM040 theory.", type:"book", free:true, url:"https://www.microsoft.com/en-us/research/uploads/prod/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf" },
+      { icon:"🖥️", name:"Stanford CS229 — Machine Learning (Andrew Ng, free)", desc:"The original ML course with full lecture notes, videos, and problem sets covering all DSM040 topics.", type:"course", free:true, url:"https://cs229.stanford.edu/" },
+      { icon:"🎥", name:"StatQuest — Machine Learning full playlist", desc:"Every algorithm in DSM040 explained visually. Essential for the theory components of coursework.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLblh5JKOoLUICTaGLRoHQDuF_7q2GfuJF" },
+      { icon:"📖", name:"Introduction to Statistical Learning (ISLR) — free PDF", desc:"Covers all DSM040 methods with R and Python code. Standard MSc-level applied ML textbook.", type:"book", free:true, url:"https://www.statlearning.com/" },
+      { icon:"🏋️", name:"Scikit-learn — official tutorials and user guide", desc:"All MSc ML algorithms implemented in scikit-learn. Documentation includes theoretical background.", type:"docs", free:true, url:"https://scikit-learn.org/stable/user_guide.html" },
+      { icon:"🖥️", name:"fast.ai — Practical ML for Coders (free)", desc:"Jeremy Howard's hands-on ML course. Excellent complement to the theoretical Bishop approach.", type:"course", free:true, url:"https://course.fast.ai/" },
+    ],
+    outcomes: ["Derive and compare generative vs discriminative classifiers","Implement SVMs with kernel methods","Apply ensemble methods to real datasets","Explain PAC learning and VC dimension","Evaluate models rigorously with cross-validation","Write theory-heavy ML coursework at MSc level"],
+    project: { title:"Comparative ML Study (DSM040 coursework style)", desc:"Conduct a rigorous comparative study of 4 classifiers (Naive Bayes, SVM with RBF kernel, Random Forest, Gradient Boosting) on a financial classification task (credit scoring or fraud). For each model: derive the theoretical decision boundary, implement from scikit-learn, tune hyperparameters with nested cross-validation, and report precision, recall, F1, AUC-ROC. Write a 3,500-word academic report with a theory section, methods, results table, and critical discussion — matching DSM040 coursework expectations." }
+  },
+  {
+    num: "DSM120", year: 4, color: "#f59e0b", bg: "rgba(245,158,11,0.1)",
+    title: "Financial Data Modelling",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (MSc Core — FinTech pathway)",
+    desc: "A core module for the MSc Data Science & Financial Technology pathway. Focuses on applying ML and neural network techniques to financial time series data. Covers linear, non-linear, and density models of sequential data using neural networks; gradient descent techniques; Kalman filters for dynamic treatment; overfitting and generalisation in financial contexts; and applications to VaR estimation, option pricing, portfolio estimation, and algorithmic trading. Assessed by coursework (50%) and written exam (50%).",
+    topics: ["Linear Models for Financial Time Series","Non-Linear Models & Universal Approximation","Neural Networks for Sequential Data","Gradient Descent & Backpropagation Through Time","Kalman Filter & Extended Kalman Filter","Overfitting, Generalisation, Regularisation","Value-at-Risk with Neural Networks","Option Pricing with Neural Networks","Portfolio Estimation with ML","Algorithmic Trading Strategies"],
+    resources: [
+      { icon:"📖", name:"Python for Finance — Yves Hilpisch (GitHub code free)", desc:"The standard FinTech Python textbook covering neural networks for option pricing and algo trading.", type:"book", free:true, url:"https://github.com/yhilpisch/py4fi2nd" },
+      { icon:"🎥", name:"Ritvikmath — Time Series & Financial ML YouTube", desc:"Mathematical treatment of Kalman filters, ARIMA-GARCH, and neural network models for finance.", type:"video", free:true, url:"https://www.youtube.com/c/ritvikmath" },
+      { icon:"🖥️", name:"MIT 18.S096 — Mathematics of Finance (free OCW)", desc:"MIT's dedicated mathematical finance course covering stochastic models and derivatives pricing.", type:"course", free:true, url:"https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/" },
+      { icon:"🏋️", name:"Kaggle — G-Research Crypto Forecasting Competition", desc:"Real financial ML competition matching the DSM120 scope: predicting financial returns with ML.", type:"practice", free:true, url:"https://www.kaggle.com/c/g-research-crypto-forecasting" },
+      { icon:"📖", name:"Deep Learning for Finance — arXiv survey", desc:"Comprehensive survey of deep neural network approaches to financial modelling, free on arXiv.", type:"book", free:true, url:"https://arxiv.org/abs/2012.04136" },
+      { icon:"🖥️", name:"PyKalman — Kalman Filter library (Python)", desc:"Python Kalman filter library with financial time series examples in the documentation.", type:"docs", free:true, url:"https://pykalman.github.io/" },
+    ],
+    outcomes: ["Build neural networks for financial time series","Apply Kalman filters to dynamic portfolio estimation","Price options using neural network approximations","Estimate VaR using non-linear models","Diagnose and address overfitting in financial ML","Write a financial ML report and pass the written exam"],
+    project: { title:"Neural Network Financial Modelling (DSM120 style)", desc:"Three-part project covering the full MSc financial data modelling scope: (1) fit a recurrent neural network (LSTM) to predict 5-day-ahead returns for 3 FTSE 100 stocks — compare against ARIMA baseline; (2) implement an Extended Kalman Filter for portfolio weight estimation under non-linear dynamics; (3) use a feedforward neural network to approximate Black-Scholes option prices, train on synthetic data, and evaluate on real options data. Submit as a Jupyter notebook and a 3,000-word academic write-up suitable for a written examination." }
+  },
+
+  // ─── MSc YEAR 2 — FinTech Specialist ────────────────────
+  {
+    num: "DSM070", year: 5, color: "#ec4899", bg: "rgba(236,72,153,0.1)",
+    title: "Blockchain Programming",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (Compulsory — FinTech pathway)",
+    desc: "A compulsory module for the MSc Data Science & Financial Technology pathway. Covers the technology underpinning Bitcoin, Ethereum and other cryptocurrencies. You will gain both practical and theoretical knowledge: how blockchains work, security issues, competing consensus mechanisms (proof of work vs proof of stake), smart contracts, DeFi applications, and the regulatory horizon. By the end, you will have designed and implemented your own working blockchain in Python.",
+    topics: ["Cryptographic Foundations (Hashing, Digital Signatures)","Blockchain Data Structure","Consensus Mechanisms: PoW vs PoS","Bitcoin Protocol & UTXO Model","Ethereum & Smart Contracts (Solidity)","Decentralised Finance (DeFi)","Tokenisation & NFTs","Blockchain Security Vulnerabilities","Private & Permissioned Blockchains (Hyperledger)","Regulatory Landscape for Crypto Assets"],
+    resources: [
+      { icon:"📖", name:"Bitcoin Whitepaper — Satoshi Nakamoto (free PDF)", desc:"The original Bitcoin white paper. Essential reading for understanding blockchain foundations.", type:"book", free:true, url:"https://bitcoin.org/bitcoin.pdf" },
+      { icon:"🎥", name:"freeCodeCamp — Blockchain & Solidity Full Course", desc:"Build and deploy Ethereum smart contracts from scratch. Covers all DSM070 practical components.", type:"video", free:true, url:"https://www.youtube.com/watch?v=M576WGiDBdQ" },
+      { icon:"🖥️", name:"Ethereum Foundation — Solidity Documentation (free)", desc:"Official Solidity language documentation with smart contract tutorials and security guides.", type:"docs", free:true, url:"https://docs.soliditylang.org/en/latest/" },
+      { icon:"🎥", name:"MIT 15.S12 — Blockchain and Money (free OCW)", desc:"MIT course taught by Gary Gensler (ex-SEC Chair) covering blockchain, crypto assets, and regulation.", type:"course", free:true, url:"https://ocw.mit.edu/courses/15-s12-blockchain-and-money-fall-2018/" },
+      { icon:"🏋️", name:"CryptoZombies — Free Solidity interactive tutorial", desc:"Learn to write Ethereum smart contracts by building a game. Best free hands-on Solidity resource.", type:"practice", free:true, url:"https://cryptozombies.io/" },
+      { icon:"📖", name:"Mastering Bitcoin — Andreas Antonopoulos (free GitHub)", desc:"Full technical reference for Bitcoin protocol, cryptography, and network security. Free on GitHub.", type:"book", free:true, url:"https://github.com/bitcoinbook/bitcoinbook" },
+    ],
+    outcomes: ["Implement a working blockchain from scratch in Python","Write and deploy Ethereum smart contracts in Solidity","Explain PoW vs PoS and their security trade-offs","Analyse blockchain security vulnerabilities","Evaluate DeFi protocols and their risks","Understand the regulatory treatment of crypto assets in the UK"],
+    project: { title:"Build Your Own Blockchain (DSM070 coursework)", desc:"Implement a fully working proof-of-work blockchain in Python: transactions with digital signatures (ECDSA), SHA-256 block hashing, a peer-to-peer networking layer (using Python sockets), and a mining simulation. Then write a Solidity smart contract for a simple financial instrument (e.g., a token with transfer and approval functions). Submit the code with a 2,500-word technical report analysing your design choices, security properties, and comparing PoW vs PoS for your use case — matching the DSM070 assessment format." }
+  },
+  {
+    num: "DSM080", year: 5, color: "#ec4899", bg: "rgba(236,72,153,0.1)",
+    title: "Financial Markets",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (Compulsory — FinTech pathway)",
+    desc: "A compulsory module for the MSc FinTech pathway. Provides foundational and advanced knowledge of modern financial instruments — essential for FinTech practitioners. Covers equity and debt markets, derivatives (futures, options, swaps), market microstructure, portfolio theory, investment strategies, and the mathematical/computational tools needed to analyse, evaluate, and implement investment decisions. Assessed by coursework (50%) and written examination (50%).",
+    topics: ["Equity Markets: Stocks, IPOs, Indices","Fixed Income: Bonds, Duration, Yield Curves","Derivatives: Futures, Options, Swaps","Black-Scholes Model & Greeks","Market Microstructure & Order Books","Portfolio Theory (Markowitz Efficient Frontier)","Capital Asset Pricing Model (CAPM)","Risk Management: VaR, Expected Shortfall","Behavioural Finance","Algorithmic & High-Frequency Trading Overview"],
+    resources: [
+      { icon:"🖥️", name:"Yale — Financial Markets (Robert Shiller) on Coursera (audit free)", desc:"Nobel laureate Shiller's legendary course covering markets, derivatives, risk, and behavioural finance.", type:"course", free:true, url:"https://www.coursera.org/learn/financial-markets-global" },
+      { icon:"📖", name:"Options, Futures and Other Derivatives — Hull (lecture notes free)", desc:"John Hull's standard textbook. Free lecture notes and slides on his website.", type:"book", free:true, url:"https://www-2.rotman.utoronto.ca/~hull/ofod/index.html" },
+      { icon:"🎥", name:"Patrick Boyle — Financial Markets & Derivatives (YouTube)", desc:"Ex-hedge fund manager covering equities, bonds, derivatives, and market structure clearly.", type:"video", free:true, url:"https://www.youtube.com/@PBoyle" },
+      { icon:"🖥️", name:"MIT 15.401 — Finance Theory (free OCW)", desc:"Full MIT undergraduate finance course with lecture notes, problem sets, and exams.", type:"course", free:true, url:"https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/" },
+      { icon:"🏋️", name:"QuantLib Python — options pricing library tutorials", desc:"Open-source quantitative finance library: implement Black-Scholes, bond pricing, and yield curves.", type:"docs", free:true, url:"https://quantlib-python-docs.readthedocs.io/en/latest/" },
+      { icon:"🎥", name:"Khan Academy — Finance & Capital Markets", desc:"Clear explanations of stocks, bonds, futures, options, and portfolio theory.", type:"video", free:true, url:"https://www.khanacademy.org/economics-finance-domain/core-finance" },
+    ],
+    outcomes: ["Price derivatives using Black-Scholes and binomial trees","Construct a mean-variance optimal portfolio","Analyse bond duration and convexity","Apply CAPM to estimate required returns","Interpret market microstructure and order flow","Prepare for the DSM080 written examination"],
+    project: { title:"Financial Instruments Analysis (DSM080 coursework style)", desc:"Three-component project: (1) implement Black-Scholes option pricing and compute all Greeks with Python, validate against market data; (2) construct the efficient frontier for a 15-asset portfolio using Markowitz optimisation and scipy, identify the max-Sharpe portfolio; (3) write a 1,500-word section analysing behavioural biases observed in a financial event of your choice (e.g., a meme stock or crypto bubble). Combine into a 3,500-word report and prepare revision notes for the written exam." }
+  },
+  {
+    num: "DSM150", year: 5, color: "#ec4899", bg: "rgba(236,72,153,0.1)",
+    title: "Neural Networks",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (Optional — FinTech pathway)",
+    desc: "An optional module in this MSc, and a compulsory module for the MSc Data Science & AI pathway. Provides specialised theoretical and practical knowledge of neural network architectures for data-oriented tasks. Covers the principles of neuro-computing, feedforward networks, recurrent networks, convolutional networks, and their application to regression, pattern recognition, and time-series prediction — with direct FinTech applications.",
+    topics: ["Perceptrons & Multi-Layer Networks","Activation Functions & Non-Linearity","Backpropagation Algorithm","Regularisation: Dropout, Batch Norm, Weight Decay","Convolutional Neural Networks (CNNs)","Recurrent Networks: LSTM, GRU","Attention Mechanisms","Autoencoders & Representation Learning","Transfer Learning","Neural Networks for Financial Time Series"],
+    resources: [
+      { icon:"🖥️", name:"DeepLearning.AI — Neural Networks & Deep Learning (Coursera, audit free)", desc:"Andrew Ng's first course in the Deep Learning Specialisation, covering all DSM150 foundations.", type:"course", free:true, url:"https://www.coursera.org/learn/neural-networks-deep-learning" },
+      { icon:"📖", name:"Dive into Deep Learning — d2l.ai (free textbook)", desc:"Interactive DL textbook with PyTorch/TensorFlow code. Covers every architecture in DSM150.", type:"book", free:true, url:"https://d2l.ai/" },
+      { icon:"🎥", name:"3Blue1Brown — Neural Networks (visual series)", desc:"The most intuitive introduction to neural network geometry, backpropagation, and gradient descent.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" },
+      { icon:"🏋️", name:"PyTorch — Official 60-minute blitz tutorial", desc:"Build, train, and evaluate neural networks in PyTorch — the tool of choice for MSc-level work.", type:"docs", free:true, url:"https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html" },
+      { icon:"🎥", name:"Andrej Karpathy — Neural Networks: Zero to Hero", desc:"Build an LSTM character-level language model and GPT from scratch. Essential depth for DSM150.", type:"video", free:true, url:"https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" },
+      { icon:"🖥️", name:"fast.ai — Practical Deep Learning for Coders (free)", desc:"Top-down neural network course in PyTorch. Covers CNNs, RNNs, and transfer learning.", type:"course", free:true, url:"https://course.fast.ai/" },
+    ],
+    outcomes: ["Implement backpropagation from scratch","Train CNNs for financial document classification","Build LSTM models for time series prediction","Apply dropout and batch normalisation correctly","Use transfer learning to adapt pre-trained models","Produce DSM150-style coursework with full neural network implementation"],
+    project: { title:"Neural Networks for Finance (DSM150 coursework style)", desc:"Two-part project: (1) implement a multi-layer neural network from scratch using only NumPy — train it on the UCI credit default dataset, tune with dropout regularisation, plot learning curves; (2) build and train an LSTM in PyTorch to forecast daily closing prices of a stock index, compare against ARIMA and random walk baselines. Full technical report (3,000 words) covering architecture diagrams, training methodology, results, and discussion of overfitting — matching DSM150 assessment criteria." }
+  },
+  {
+    num: "DSM140", year: 5, color: "#ec4899", bg: "rgba(236,72,153,0.1)",
+    title: "Natural Language Processing",
+    duration: "22 weeks", effort: "5–7 hrs/week", credits: "15 credits (Optional — FinTech pathway)",
+    desc: "An optional MSc module covering machine processing of natural language — a key application domain for FinTech. Combines rule-based and statistical approaches with hands-on work using widely-used NLP libraries. Focuses on text processing (not speech): tokenisation, morphology, parsing, named entity recognition, sentiment analysis, topic modelling, and modern transformer-based approaches. Assessed by coursework (30%) and written examination (70%).",
+    topics: ["Text Preprocessing: Tokenisation, Stemming, Lemmatisation","Morphological Analysis & POS Tagging","Context-Free Grammars & Parsing","Named Entity Recognition (NER)","Sentiment Analysis: Lexicon & ML approaches","TF-IDF & Vector Space Models","Word Embeddings: Word2Vec, GloVe, FastText","Topic Modelling: LDA, NMF","Sequence Models for NLP (LSTM, Transformers)","Financial NLP: Earnings Calls, News, SEC Filings"],
+    resources: [
+      { icon:"📖", name:"Speech and Language Processing — Jurafsky & Martin (free PDF draft)", desc:"The definitive NLP textbook, 3rd edition draft freely available. Covers all DSM140 topics in depth.", type:"book", free:true, url:"https://web.stanford.edu/~jurafsky/slp3/" },
+      { icon:"🖥️", name:"spaCy — Industrial NLP (free tutorials and docs)", desc:"The leading Python NLP library used in professional and academic NLP work. Official tutorial covers all key topics.", type:"docs", free:true, url:"https://spacy.io/usage/spacy-101" },
+      { icon:"🖥️", name:"NLTK Book (free online) — Natural Language Processing with Python", desc:"The original Python NLP textbook, fully free online. Covers tokenisation to parsing and semantics.", type:"book", free:true, url:"https://www.nltk.org/book/" },
+      { icon:"🎥", name:"Stanford CS224N — NLP with Deep Learning (full lectures free)", desc:"Stanford's graduate NLP course: word vectors, RNNs, attention, transformers, and BERT.", type:"course", free:true, url:"https://web.stanford.edu/class/cs224n/" },
+      { icon:"🖥️", name:"Hugging Face NLP Course (free)", desc:"Modern transformer NLP from the creators of the Transformers library. Covers BERT fine-tuning.", type:"course", free:true, url:"https://huggingface.co/learn/nlp-course" },
+      { icon:"🏋️", name:"FinBERT — Financial Sentiment Model (Hugging Face)", desc:"Pre-trained BERT model for financial text sentiment. Use for earnings call and news analysis.", type:"docs", free:true, url:"https://huggingface.co/ProsusAI/finbert" },
+    ],
+    outcomes: ["Preprocess and tokenise financial text","Implement named entity recognition for financial entities","Build a sentiment classifier for earnings call transcripts","Apply LDA topic modelling to regulatory filings","Fine-tune a BERT-based model for financial NLP","Prepare for the DSM140 written examination (70% of grade)"],
+    project: { title:"Financial NLP System (DSM140 coursework style)", desc:"Build a complete financial NLP pipeline: (1) scrape or download earnings call transcripts and news headlines; (2) implement text preprocessing with spaCy (tokenisation, NER to extract company names, dates, financial figures); (3) train a sentiment classifier with TF-IDF + Logistic Regression and compare against FinBERT; (4) run LDA topic modelling to identify key themes across 200+ filings. Produce a 3,000-word report (coursework component, 30%) and prepare revision summary notes for the exam component (70%)." }
+  },
+  {
+    num: "DSM500", year: 5, color: "#ec4899", bg: "rgba(236,72,153,0.1)",
+    title: "Final Project in Data Science & Financial Technology",
+    duration: "26 weeks", effort: "10–15 hrs/week", credits: "30 credits (Core — Final Project)",
+    desc: "The capstone of the Open MSc Data Science & Financial Technology curriculum. An independent, substantial research project demonstrating project planning, management, research, implementation, and written presentation skills. You will integrate knowledge from all modules and produce a sequence of deliverables: a project proposal, preliminary report, weekly progress logs, a final project report with source code, and a presentation/demonstration. Also assessed by a 2-hour written examination on general data science project methodology and your specific project. Worth 30 credits — the largest single module.",
+    topics: ["Project Scoping & Research Question Formulation","Literature Review: arXiv, SSRN, ACM Digital Library","Data Collection & Engineering Pipeline","Methodology Design & Justification","Model Implementation & Evaluation","Critical Analysis of Results","Written Report to Academic Standard","Project Proposal Deliverable","Preliminary Report Deliverable","2-Hour Written Examination Preparation"],
+    resources: [
+      { icon:"🖥️", name:"MSc Final Project Examples — Open Source Reference Projects", desc:"Browse open-source DS final project repositories on GitHub to understand scope and standard.", type:"docs", free:true, url:"https://github.com/topics/data-science-project" },
+      { icon:"📖", name:"arXiv q-fin — Recent Financial ML Research", desc:"Primary source of research papers for your literature review. Use Google Scholar for citation counts.", type:"docs", free:true, url:"https://arxiv.org/list/q-fin/recent" },
+      { icon:"🖥️", name:"Papers with Code — Financial Forecasting SOTA", desc:"Find benchmark datasets and state-of-the-art baselines to compare your project against.", type:"docs", free:true, url:"https://paperswithcode.com/task/financial-forecasting" },
+      { icon:"📖", name:"Overleaf — MSc Dissertation LaTeX Template", desc:"Write your final project report in professional LaTeX using a postgraduate report template.", type:"docs", free:true, url:"https://www.overleaf.com/latex/templates/tagged/academic-journal" },
+      { icon:"🏋️", name:"Kaggle — Active Financial Data Science Competitions", desc:"Enter a live Kaggle competition as your experimental component — leaderboard placement is evidence.", type:"practice", free:true, url:"https://www.kaggle.com/competitions?tags=14102" },
+      { icon:"📖", name:"Zotero — Free Reference Manager", desc:"Manage your bibliography and generate BibTeX for LaTeX. Use from day one of the project.", type:"docs", free:true, url:"https://www.zotero.org/" },
+    ],
+    outcomes: ["Deliver a full DSM500-standard project proposal","Write a preliminary project report","Maintain weekly progress logs with version-controlled code","Produce a final project report to MSc standard","Present and demonstrate your system","Pass the 2-hour written project examination"],
+    project: { title:"MSc Final Project (DSM500 — Open Standard)", desc:"Complete an original data science project in the FinTech domain following the MSc-standard deliverable structure. Choose ONE: (1) Predictive analytics for P2P lending default risk — collect Lending Club data, engineer features, compare ML models (XGBoost, neural network), and produce SHAP explanations. (2) Sentiment-driven trading signals — collect financial news/earnings call data, build NLP sentiment models, backtest a long-short strategy based on sentiment signals. (3) Blockchain analytics — analyse Ethereum transaction network for DeFi protocol risk using graph analysis and anomaly detection. Deliverables (matching DSM500): Project Proposal (1,500 words), Preliminary Report (3,000 words), Weekly Progress Log (10+ entries with GitHub commits), Final Report (8,000–10,000 words with full code and data), and Presentation slides for a 15-minute demo. Revise for the 2-hour project examination." }
+  }
+];
+
+let currentModule = null;
+let completed = new Set(JSON.parse(localStorage.getItem('odsu_completed') || '[]'));
+
+function saveProgress() {
+  localStorage.setItem('odsu_completed', JSON.stringify([...completed]));
+  const pct = Math.round((completed.size / MODULES.length) * 100);
+  document.getElementById('progressPill').textContent = pct + '% Complete';
+}
+
+function showView(view) {
+  document.getElementById('view-overview').classList.toggle('hidden', view !== 'overview');
+  document.getElementById('view-module').classList.toggle('hidden', view !== 'module');
+  document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+  if (view === 'overview') document.getElementById('nav-overview').classList.add('active');
+  document.getElementById('mainContent').scrollTop = 0;
+}
+
+function showModule(idx) {
+  currentModule = idx;
+  const m = MODULES[idx];
+  showView('module');
+  document.querySelectorAll('.sidebar-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('nav-' + idx).classList.add('active');
+
+  const yearLabel = m.year === 1 ? 'YEAR 01' : m.year === 2 ? 'YEAR 02' : m.year === 3 ? 'YEAR 03' : m.year === 4 ? 'MSc YEAR 1' : 'MSc YEAR 2';
+  const yearName = m.year === 1 ? 'BSc Foundations' : m.year === 2 ? 'BSc Core DS' : m.year === 3 ? 'BSc FinTech Advanced' : m.year === 4 ? 'Open MSc Core Modules' : 'Open MSc FinTech Specialist';
+
+  const resourcesHtml = m.resources.map(r => `
+    <div class="resource-card" onclick="window.open('${r.url}','_blank')" style="cursor:pointer;">
+      <div class="resource-icon" style="background:rgba(255,255,255,0.05)">${r.icon}</div>
+      <div class="resource-body">
+        <div class="resource-name">${r.name}</div>
+        <div class="resource-desc">${r.desc}</div>
+        <div style="margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--text-dim);">${r.url}</div>
+      </div>
+      <div class="resource-right">
+        <span class="resource-type type-${r.type}">${r.type}</span>
+        ${r.free ? '<span class="free-badge">✓ FREE</span>' : ''}
+        <a class="resource-link" href="${r.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Open Free Resource</a>
+      </div>
+    </div>
+  `).join('');
+
+  const topicsHtml = m.topics.map(t => `<div class="topic-chip">${t}</div>`).join('');
+  const outcomesHtml = m.outcomes.map(o => `<div class="outcome-item">${o}</div>`).join('');
+
+  const isDone = completed.has(idx);
+
+  document.getElementById('moduleContent').innerHTML = `
+    <div class="module-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.5rem">
+          <span class="module-num-badge" style="background:${m.bg};color:${m.color};border:1px solid ${m.color}40">
+            ${yearLabel} · Module ${m.num}
+          </span>
+          <span style="font-size:0.72rem;color:var(--text-dim);font-family:'IBM Plex Mono',monospace">${yearName}</span>
+        </div>
+        <div class="module-title">${m.title}</div>
+        <div class="module-meta">
+          <span class="meta-tag" style="background:${m.bg};color:${m.color}">⏱ ${m.duration}</span>
+          <span class="meta-tag" style="background:rgba(255,255,255,0.05);color:var(--text-secondary)">💪 ${m.effort}</span>
+          <span class="meta-tag" style="background:rgba(255,255,255,0.05);color:var(--text-secondary)">🎓 ${m.credits}</span>
+          <button onclick="toggleComplete(${idx})" style="background:${isDone ? 'rgba(16,185,129,0.15)' : 'var(--navy-card)'};border:1px solid ${isDone ? '#6ee7b780' : 'var(--navy-border)'};border-radius:6px;padding:3px 12px;cursor:pointer;font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:${isDone ? '#6ee7b7' : 'var(--text-dim)'};" id="completeBtn">
+            ${isDone ? '✓ Completed' : 'Mark Complete'}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <p class="module-desc">${m.desc}</p>
+
+    <div class="section-title">Topics Covered</div>
+    <div class="topics-grid">${topicsHtml}</div>
+
+    <div class="section-title">Free Learning Resources</div>
+    <div class="resources-list">${resourcesHtml}</div>
+
+    <div class="section-title">Learning Outcomes</div>
+    <div class="outcomes-grid">${outcomesHtml}</div>
+
+    <div class="section-title">Mini Project</div>
+    <div class="project-box">
+      <div class="project-label">▶ PORTFOLIO PROJECT</div>
+      <div class="project-title">${m.project.title}</div>
+      <div class="project-desc">${m.project.desc}</div>
+    </div>
+
+    <div class="module-nav">
+      <button class="nav-btn" onclick="showModule(${idx - 1})" ${idx === 0 ? 'disabled' : ''}>← Previous Module</button>
+      <button class="nav-btn" onclick="showView('overview')">🏠 Overview</button>
+      <button class="nav-btn" onclick="showModule(${idx + 1})" ${idx === MODULES.length - 1 ? 'disabled' : ''}>Next Module →</button>
+    </div>
+  `;
+}
+
+function toggleComplete(idx) {
+  if (completed.has(idx)) completed.delete(idx);
+  else completed.add(idx);
+  saveProgress();
+  showModule(idx);
+  // Update sidebar check
+}
+
+// Init
+saveProgress();
+</script>
+</body>
+</html>
