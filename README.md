@@ -1,5 +1,5 @@
 # 🎓 Free University-Level BSc + MSc Curricula
-
+https://migdad-latif.github.io/free-university-level-bsc-msc/
 > **5 complete degree programmes. 140 modules. £0 cost. 100% open source.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
