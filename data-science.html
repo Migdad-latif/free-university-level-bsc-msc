@@ -519,6 +519,106 @@
     .how-row { grid-template-columns: repeat(2,1fr); }
     main { padding: 1.25rem; }
   }
+
+  /* ── ENHANCED HOVER & CURSOR STATES ── */
+
+  /* Sidebar items - clear pointer + strong highlight */
+  .sidebar-item {
+    cursor: pointer !important;
+    transition: background 0.15s, color 0.15s, border-left-color 0.15s, padding-left 0.15s !important;
+    user-select: none;
+  }
+  .sidebar-item:hover {
+    background: rgba(255,255,255,0.07) !important;
+    color: var(--text-primary) !important;
+    border-left-color: var(--gold-dim) !important;
+    padding-left: 1.4rem !important;
+  }
+  .sidebar-item.active {
+    border-left-color: var(--gold) !important;
+    background: rgba(255,255,255,0.09) !important;
+    color: var(--gold) !important;
+  }
+
+  /* Year overview cards - pointer + lift + glow */
+  .year-card {
+    cursor: pointer !important;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s !important;
+    user-select: none;
+  }
+  .year-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+    border-color: rgba(255,255,255,0.15) !important;
+  }
+
+  /* Resource cards - pointer + bg highlight + border glow */
+  .resource-card {
+    cursor: pointer !important;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s !important;
+    user-select: none;
+  }
+  .resource-card:hover {
+    background: rgba(255,255,255,0.04) !important;
+    border-color: var(--gold) !important;
+    transform: translateX(4px) !important;
+  }
+
+  /* Open resource link button */
+  .resource-link {
+    cursor: pointer !important;
+    transition: opacity 0.15s, transform 0.15s !important;
+  }
+  .resource-link:hover {
+    opacity: 0.85 !important;
+    transform: scale(1.04) !important;
+  }
+
+  /* Nav prev/next buttons */
+  .nav-btn {
+    cursor: pointer !important;
+    transition: border-color 0.15s, color 0.15s, background 0.15s !important;
+    user-select: none;
+  }
+  .nav-btn:hover:not(:disabled) {
+    border-color: var(--gold) !important;
+    color: var(--gold) !important;
+    background: rgba(255,255,255,0.04) !important;
+  }
+  .nav-btn:disabled {
+    cursor: not-allowed !important;
+  }
+
+  /* Mark complete button */
+  button {
+    cursor: pointer !important;
+    transition: all 0.15s !important;
+  }
+  button:hover {
+    filter: brightness(1.15) !important;
+  }
+
+  /* How-to cards on overview */
+  .how-card {
+    cursor: default;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+  .how-card:hover {
+    background: rgba(255,255,255,0.04) !important;
+    transform: translateY(-2px) !important;
+  }
+
+  /* MSc divider - not clickable */
+  .msc-divider { cursor: default !important; }
+
+  /* Scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    transition: background 0.2s !important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dim) !important;
+  }
+
 </style>
 </head>
 <body>
