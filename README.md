@@ -8,7 +8,7 @@
 ![Cost](https://img.shields.io/badge/cost-free-success)
 ![No Institution](https://img.shields.io/badge/institution-none-lightgrey)
 
-No tuition fees. No admissions process. No gatekeeping. Six complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
+No tuition fees. No admissions process. No gatekeeping. Six complete BSc + MSc curricula  each with 28 structured modules, real portfolio projects, and 100% free resources  built for anyone, anywhere in the world.
 
 ---
 
