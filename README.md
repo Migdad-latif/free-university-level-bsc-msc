@@ -1,28 +1,33 @@
 # 🎓 Free University-Level BSc + MSc Curricula
 
-> **5 complete degree programmes. 140 modules. £0 cost. 100% open source.**
+> **6 complete degree programmes. 168 modules. £0 cost. 100% open source.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
-![Modules](https://img.shields.io/badge/modules-149-blue)
+![Modules](https://img.shields.io/badge/modules-168-blue)
 ![Courses](https://img.shields.io/badge/degrees-6-brightgreen)
 ![Cost](https://img.shields.io/badge/cost-free-success)
 ![No Institution](https://img.shields.io/badge/institution-none-lightgrey)
 
+No tuition fees. No admissions process. No gatekeeping. Six complete BSc + MSc curricula — each with 28 structured modules, real portfolio projects, and 100% free resources — built for anyone, anywhere in the world.
+
 ---
 
+## 🌐 Live Website
+
+**👉 [migdad-latif.github.io/free-university-level-bsc-msc](https://migdad-latif.github.io/free-university-level-bsc-msc/)**
 
 ---
 
 ## 📚 The Six Programmes
 
-| # | Programme |
-|---|-----------|
-| 1 | 📊 Data Science & FinTech |
-| 2 | 💻 Software Engineering | 
-| 3 | 🔒 Cybersecurity |
-| 4 | ⚡ Electronic Engineering | 
-| 5 | 🧠 Artificial Intelligence | 
-| 6 | 🤖 Autonomous Systems & AI Engineering |
+| # | Programme | Link | Modules |
+|---|-----------|------|---------|
+| 1 | 📊 Data Science & FinTech | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/data-science.html) | 28 |
+| 2 | 💻 Software Engineering | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/software-engineering.html) | 28 |
+| 3 | 🔒 Cybersecurity | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/cybersecurity.html) | 28 |
+| 4 | ⚡ Electronic Engineering | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/electronic-engineering.html) | 28 |
+| 5 | 🧠 Artificial Intelligence | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/ai.html) | 28 |
+| 6 | 🤖 Robotics, AI & Autonomous Vehicles | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/robotics-ai-autonomous-vehicles.html) | 28 |
 
 Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
 
@@ -153,37 +158,30 @@ A complete 5-year curriculum from mathematical foundations through deep learning
 
 ---
 
-## 🤖 6. Autonomous Systems & AI Engineering (MSc)
+## 🤖 6. Robotics, AI & Autonomous Vehicles
 
-A complete free MSc in autonomous systems, robotics, and AI engineering. Structured as two taught terms (4 modules each, 15 credits each) plus a 60-credit self-directed Individual Project, totalling 180 credits.
+A complete 5-year BSc + MSc curriculum covering robotics, artificial intelligence, and autonomous vehicle engineering. From mechanics and sensing foundations through to SLAM, deep learning perception, autonomous driving stacks, multi-robot systems, and graduate-level AI engineering and control.
 
-### Term 1 — Core Modules (60 credits)
+### BSc — Years 1 to 3 (18 modules)
 
-| Module | Credits | Focus |
-|--------|---------|-------|
-| Advanced Signal Processing and Communications | 15 | Spectral estimation, adaptive filters, OFDM, MIMO, GNU Radio |
-| Robotics, Imaging and Vision | 15 | Camera geometry, object detection, LiDAR, SLAM, sensor fusion |
-| Engineering Programming | 15 | Modern C++, Python, ROS 2, Gazebo simulation, CI/CD |
-| System Dynamics, Propulsion and Control | 15 | Rigid body dynamics, LQR, MPC, trajectory optimisation |
+| Year | Focus | Modules |
+|------|-------|---------|
+| Year 1 | Foundations | Mathematics for Robotics & AI, Electronics & Sensing, Programming for Robotics, Mechanics & Dynamics, Digital Systems & MCUs, Introduction to Robotics |
+| Year 2 | Core Skills | Robot Kinematics & Dynamics, Computer Vision for Robotics, Control Systems, Mobile Robot Navigation, ML for Robotics, Autonomous Vehicle Fundamentals |
+| Year 3 | Advanced & Capstone | SLAM & 3D Perception, Deep Learning for Autonomous Systems, Multi-Robot Systems & Swarms, Drone & Aerial Robotics, Human-Robot Interaction, BSc Capstone |
 
-### Term 2 — Applied Modules (60 credits)
+### MSc — Years 4 to 5 (10 modules)
 
-| Module | Credits | Focus |
-|--------|---------|-------|
-| Embedded Systems | 15 | ARM Cortex-M, FreeRTOS, Zephyr, safety-critical design, micro-ROS |
-| Machine/Machine, Human/Machine Teaming | 15 | Multi-agent systems, swarm intelligence, trust, supervisory control |
-| Machine Learning | 15 | Deep learning, RL for control, Gaussian processes, Edge AI |
-| AI for Engineering Design Projects | 15 | PINNs, surrogate models, generative design, Bayesian optimisation |
+| Year | Focus | Modules |
+|------|-------|---------|
+| MSc Year 1 | Advanced Methods | Advanced Signal Processing & Communications, Advanced Robotics, Imaging & Vision, Engineering Programming (CUDA/AUTOSAR), System Dynamics & Control (MPC/iLQR), Embedded Systems for Autonomous Platforms (ISO 26262) |
+| MSc Year 2 | Research & Dissertation | ML for Autonomous Systems (end-to-end, world models), AI for Engineering Design (PINNs, Bayesian optimisation), Human-Machine Teaming & Ethics, Research Methods (ICRA/IROS format), MSc Dissertation (60 credits) |
 
-### Dissertation (60 credits)
+**Key resources:** MIT OCW · ROS 2 · Gazebo · OpenCV · PyTorch · CARLA Simulator (free) · PX4 (free) · GNU Radio · GTSAM · Weights & Biases
 
-| Module | Credits | Description |
-|--------|---------|-------------|
-| Individual Project | 60 | Self-directed original research or engineering project integrating the full MSc programme. 15,000–20,000 word dissertation + open-source code release. |
+**BSc portfolio projects include:** Sensor interface station · First ROS 2 robot · Inverted pendulum controller · 6-DOF arm simulation · Autonomous navigation system · CARLA AV agent · 3D SLAM on KITTI dataset · Multi-robot warehouse system · Autonomous quadrotor mission
 
-**Key resources:** MIT OCW · ROS 2 · OpenCV · GNU Radio · fast.ai · FreeRTOS · Zephyr · Hugging Face · PettingZoo · Gazebo
-
-**Project examples include:** Software-defined OFDM transceiver · Autonomous perception pipeline · ROS 2 navigation stack · Quadrotor flight controller (LQR/MPC) · Safety-critical embedded robot controller · Multi-UAV collaborative search system · Learning-based autonomous navigation · AI-optimised structural design
+**MSc portfolio projects include:** Multi-sensor fusion pipeline (UKF + particle filter) · Foundation model robot (CLIP + LLM + ROS 2) · GPU-accelerated perception pipeline (CUDA + TensorRT) · Trajectory optimisation in CARLA (iLQR + MPC) · Safety-critical AV ECU (ISO 26262 + Zephyr) · End-to-end driving agent on CARLA leaderboard · MSc Dissertation
 
 ---
 
@@ -191,65 +189,69 @@ A complete free MSc in autonomous systems, robotics, and AI engineering. Structu
 
 ```
 free-university-level-bsc-msc/
-├── README.md                                      # This file
-├── [data-science.html](https://migdad-latif.github.io/free-university-level-bsc-msc/data-science.html)   # 📊 Data Science & FinTech
-├── [software-engineering.html](https://migdad-latif.github.io/free-university-level-bsc-msc/software-engineering.html)  # 💻 Software Engineering
-├── [cybersecurity.html](https://migdad-latif.github.io/free-university-level-bsc-msc/cybersecurity.html)         # 🔒 Cybersecurity
-├── [electronic-engineering.html](https://migdad-latif.github.io/free-university-level-bsc-msc/electronic-engineering.html)  # ⚡ Electronic Engineering
-├── [ai.html](https://migdad-latif.github.io/free-university-level-bsc-msc/ai.html)
-├── [autonomous-systems.html](https://migdad-latif.github.io/free-university-level-bsc-msc/autonomous-systems.html)    # 🤖 Autonomous Systems & AI Engineering (MSc)               # 🧠 Artificial Intelligence
+├── README.md
+├── index.html                              # 🌐 Landing page — start here
+├── data-science.html                       # 📊 Data Science & FinTech
+├── software-engineering.html               # 💻 Software Engineering
+├── cybersecurity.html                      # 🔒 Cybersecurity
+├── electronic-engineering.html             # ⚡ Electronic Engineering
+├── ai.html                                 # 🧠 Artificial Intelligence
+└── robotics-ai-autonomous-vehicles.html    # 🤖 Robotics, AI & Autonomous Vehicles
 ```
 
 ---
 
 ## 🚀 How to Use
 
-### Option 1: Open directly
+### Option 1: Visit the live site
+**[migdad-latif.github.io/free-university-level-bsc-msc](https://migdad-latif.github.io/free-university-level-bsc-msc/)**
+
+Click any course card to open the full interactive curriculum in your browser.
+
+### Option 2: Clone and open locally
 ```bash
 git clone https://github.com/Migdad-latif/free-university-level-bsc-msc.git
 ```
-Then open any `.html` file in your browser.
+Open `index.html` in any browser, then click any course to start.
 
-### Option 2: GitHub Pages (recommended — live on the web)
-1. Fork this repository
-2. Go to **Settings → Pages**
-3. Set source to **Deploy from a branch → main → / (root)**
-4. Your curricula will be live at `https://Migdad-latif.github.io/free-university-level-bsc-msc/`
-
-### Option 3: Download and open
-Click the green **Code** button → **Download ZIP** → extract → open any `.html` file in your browser.
+### Option 3: Download ZIP
+Click the green **Code** button → **Download ZIP** → extract → open `index.html`.
 
 ---
 
-## 🧰 Tools Used Across All Five Programmes (All Free)
+## 🧰 Tools Used Across All Six Programmes (All Free)
 
 | Tool | Used In |
 |------|---------|
-| Python 3 + Anaconda | DS, SE, AI, CY |
+| Python 3 + Anaconda | All |
 | VS Code / Jupyter Lab | All |
 | Git + GitHub | All |
-| Google Colab (free GPU) | DS, AI |
+| Google Colab (free GPU) | DS, AI, Robotics |
 | Kaggle | DS, AI |
-| Docker Desktop | SE, DS, AI |
+| Docker Desktop | SE, DS, AI, Robotics |
 | PostgreSQL | DS, SE |
 | AWS Free Tier | SE, DS, CY |
 | Kali Linux / VirtualBox | CY |
 | Burp Suite CE | CY |
 | LTspice (free simulator) | EE |
-| KiCad (free PCB design) | EE |
-| GNU Radio (free SDR) | EE |
-| Wokwi (free MCU simulator) | EE |
-| PyTorch / TensorFlow | AI, DS |
-| Hugging Face | AI, DS |
-| Weights & Biases (free tier) | AI |
+| KiCad (free PCB design) | EE, Robotics |
+| GNU Radio (free SDR) | EE, Robotics |
+| Wokwi (free MCU simulator) | EE, Robotics |
+| PyTorch / TensorFlow | AI, DS, Robotics |
+| Hugging Face | AI, DS, Robotics |
+| Weights & Biases (free tier) | AI, Robotics |
 | Ghidra (free NSA RE tool) | CY |
 | TryHackMe / Hack The Box | CY |
+| ROS 2 (free) | Robotics |
+| Gazebo Simulator (free) | Robotics |
+| CARLA AV Simulator (free) | Robotics |
+| PX4 Flight Controller (free) | Robotics |
+| OpenCV | AI, Robotics |
+| GTSAM / Open3D (free) | Robotics |
 
 ---
 
 ## 📅 Suggested Study Schedule
-
-> Note: The Autonomous Systems MSc follows a term-based structure (2 terms + dissertation) rather than the 5-year BSc + MSc format of the other programmes.
 
 | Year | Hours/week | Total hours |
 |------|-----------|-------------|
@@ -259,7 +261,7 @@ Click the green **Code** button → **Download ZIP** → extract → open any `.
 | MSc Year 1 | 15 hrs/week | ~600 hrs |
 | MSc Year 2 | 18 hrs/week | ~720 hrs |
 
-You do not need to follow the 5-year timeline. Many learners pick one programme and focus on the modules most relevant to their goals.
+You do not need to follow the 5-year timeline. Many learners pick one programme and focus on the modules most relevant to their immediate goals.
 
 ---
 
