@@ -27,7 +27,7 @@ No tuition fees. No admissions process. No gatekeeping. Six complete BSc + MSc c
 | 3 | 🔒 Cybersecurity | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/cybersecurity.html) | 28 |
 | 4 | ⚡ Electronic Engineering | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/electronic-engineering.html) | 28 |
 | 5 | 🧠 Artificial Intelligence | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/ai.html) | 28 |
-| 6 | 🤖 Robotics, AI & Autonomous Vehicles | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/robotics-ai-autonomous-vehicles.html) | 28 |
+| 6 | 🤖 Robotics, AI & Autonomous Vehicles | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/autonomous-systems.html )| 28 |
 
 Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
 
