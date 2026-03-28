@@ -1,24 +1,28 @@
 # 🎓 Free University-Level BSc + MSc Curricula
-https://migdad-latif.github.io/free-university-level-bsc-msc/
+
 > **5 complete degree programmes. 140 modules. £0 cost. 100% open source.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
-![Modules](https://img.shields.io/badge/modules-140-blue)
-![Courses](https://img.shields.io/badge/degrees-5-brightgreen)
+![Modules](https://img.shields.io/badge/modules-149-blue)
+![Courses](https://img.shields.io/badge/degrees-6-brightgreen)
 ![Cost](https://img.shields.io/badge/cost-free-success)
 ![No Institution](https://img.shields.io/badge/institution-none-lightgrey)
 
 ---
 
-## 📚 The Five Programmes
 
-| # | Programme | 
+---
+
+## 📚 The Six Programmes
+
+| # | Programme |
 |---|-----------|
-| 1 | 📊 Data Science & FinTech | 
+| 1 | 📊 Data Science & FinTech |
 | 2 | 💻 Software Engineering | 
 | 3 | 🔒 Cybersecurity |
 | 4 | ⚡ Electronic Engineering | 
 | 5 | 🧠 Artificial Intelligence | 
+| 6 | 🤖 Autonomous Systems & AI Engineering |
 
 Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
 
@@ -149,16 +153,51 @@ A complete 5-year curriculum from mathematical foundations through deep learning
 
 ---
 
+## 🤖 6. Autonomous Systems & AI Engineering (MSc)
+
+A complete free MSc in autonomous systems, robotics, and AI engineering. Structured as two taught terms (4 modules each, 15 credits each) plus a 60-credit self-directed Individual Project, totalling 180 credits.
+
+### Term 1 — Core Modules (60 credits)
+
+| Module | Credits | Focus |
+|--------|---------|-------|
+| Advanced Signal Processing and Communications | 15 | Spectral estimation, adaptive filters, OFDM, MIMO, GNU Radio |
+| Robotics, Imaging and Vision | 15 | Camera geometry, object detection, LiDAR, SLAM, sensor fusion |
+| Engineering Programming | 15 | Modern C++, Python, ROS 2, Gazebo simulation, CI/CD |
+| System Dynamics, Propulsion and Control | 15 | Rigid body dynamics, LQR, MPC, trajectory optimisation |
+
+### Term 2 — Applied Modules (60 credits)
+
+| Module | Credits | Focus |
+|--------|---------|-------|
+| Embedded Systems | 15 | ARM Cortex-M, FreeRTOS, Zephyr, safety-critical design, micro-ROS |
+| Machine/Machine, Human/Machine Teaming | 15 | Multi-agent systems, swarm intelligence, trust, supervisory control |
+| Machine Learning | 15 | Deep learning, RL for control, Gaussian processes, Edge AI |
+| AI for Engineering Design Projects | 15 | PINNs, surrogate models, generative design, Bayesian optimisation |
+
+### Dissertation (60 credits)
+
+| Module | Credits | Description |
+|--------|---------|-------------|
+| Individual Project | 60 | Self-directed original research or engineering project integrating the full MSc programme. 15,000–20,000 word dissertation + open-source code release. |
+
+**Key resources:** MIT OCW · ROS 2 · OpenCV · GNU Radio · fast.ai · FreeRTOS · Zephyr · Hugging Face · PettingZoo · Gazebo
+
+**Project examples include:** Software-defined OFDM transceiver · Autonomous perception pipeline · ROS 2 navigation stack · Quadrotor flight controller (LQR/MPC) · Safety-critical embedded robot controller · Multi-UAV collaborative search system · Learning-based autonomous navigation · AI-optimised structural design
+
+---
+
 ## 🗂 Repository Contents
 
 ```
 free-university-level-bsc-msc/
 ├── README.md                                      # This file
-├── [open_ds_fintech_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ds_fintech_university.html)   # 📊 Data Science & FinTech
-├── [open_software_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_software_engineering_university.html)  # 💻 Software Engineering
-├── [open_cybersecurity_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_cybersecurity_university.html)         # 🔒 Cybersecurity
-├── [open_electronic_engineering_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_electronic_engineering_university.html)  # ⚡ Electronic Engineering
-├── [open_ai_university.html](https://migdad-latif.github.io/free-university-level-bsc-msc/open_ai_university.html)               # 🧠 Artificial Intelligence
+├── [data-science.html](https://migdad-latif.github.io/free-university-level-bsc-msc/data-science.html)   # 📊 Data Science & FinTech
+├── [software-engineering.html](https://migdad-latif.github.io/free-university-level-bsc-msc/software-engineering.html)  # 💻 Software Engineering
+├── [cybersecurity.html](https://migdad-latif.github.io/free-university-level-bsc-msc/cybersecurity.html)         # 🔒 Cybersecurity
+├── [electronic-engineering.html](https://migdad-latif.github.io/free-university-level-bsc-msc/electronic-engineering.html)  # ⚡ Electronic Engineering
+├── [ai.html](https://migdad-latif.github.io/free-university-level-bsc-msc/ai.html)
+├── [autonomous-systems.html](https://migdad-latif.github.io/free-university-level-bsc-msc/autonomous-systems.html)    # 🤖 Autonomous Systems & AI Engineering (MSc)               # 🧠 Artificial Intelligence
 ```
 
 ---
@@ -209,6 +248,8 @@ Click the green **Code** button → **Download ZIP** → extract → open any `.
 ---
 
 ## 📅 Suggested Study Schedule
+
+> Note: The Autonomous Systems MSc follows a term-based structure (2 terms + dissertation) rather than the 5-year BSc + MSc format of the other programmes.
 
 | Year | Hours/week | Total hours |
 |------|-----------|-------------|
