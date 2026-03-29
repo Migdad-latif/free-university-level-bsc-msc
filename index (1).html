@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free University — BSc + MSc Curricula</title>
+<meta name="description" content="16 free BSc + MSc curricula covering engineering, sciences, and business. 448 modules. 100% free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:    #06060e;
+    --card:  #0d0d1a;
+    --border:#1a1a2e;
+    --text:  #e8eaf6;
+    --muted: #6b7280;
+    --se:    #38bdf8;
+    --cy:    #ef4444;
+    --ee:    #f97316;
+    --ai:    #a855f7;
+    --as:    #06b6d4;
+    --as:    #22c55e;
+    --ds:    #14b8a6;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── BACKGROUND ── */
+  .bg-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .bg-glow {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse at 15% 10%, rgba(56,189,248,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 85% 10%, rgba(239,68,68,0.05) 0%, transparent 40%),
+      radial-gradient(ellipse at 15% 90%, rgba(249,115,22,0.05) 0%, transparent 40%),
+      radial-gradient(ellipse at 85% 90%, rgba(168,85,247,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.04) 0%, transparent 50%);
+  }
+
+  /* ── RAINBOW TOP BAR ── */
+  .top-stripe {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 100;
+    background: linear-gradient(90deg,
+      var(--ds) 0%, var(--ds) 20%,
+      var(--se) 20%, var(--se) 40%,
+      var(--cy) 40%, var(--cy) 60%,
+      var(--ee) 60%, var(--ee) 80%,
+      var(--ai) 80%, var(--ai) 100%
+    );
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    position: relative; z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 0 64px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono'; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+    border: 1px solid var(--border); padding: 6px 16px; border-radius: 999px;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue';
+    font-size: clamp(60px, 10vw, 120px);
+    line-height: 0.9; letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .hero-title .line1 { color: var(--text); }
+  .hero-title .line2 {
+    background: linear-gradient(90deg, var(--ds), var(--se), var(--cy), var(--ee), var(--ai));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  .hero-sub {
+    margin-top: 24px;
+    font-size: 17px; font-weight: 300; line-height: 1.7;
+    color: var(--muted); max-width: 600px; margin-left: auto; margin-right: auto;
+  }
+
+  /* Stat pills */
+  .hero-stats {
+    display: flex; justify-content: center; gap: 12px;
+    flex-wrap: wrap; margin-top: 36px;
+  }
+  .stat-pill {
+    font-family: 'JetBrains Mono'; font-size: 12px;
+    padding: 8px 20px; border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--text); letter-spacing: 0.06em;
+    background: rgba(255,255,255,0.03);
+  }
+  .stat-pill strong { color: #fff; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'JetBrains Mono'; font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── COURSE CARDS ── */
+  .courses { display: flex; flex-direction: column; gap: 16px; }
+
+  .course-card {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .course-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .course-card:hover {
+    transform: translateX(6px);
+    box-shadow: -6px 0 24px rgba(0,0,0,0.4);
+  }
+  .course-card:hover::before { opacity: 0.04; }
+  .course-card:hover .arrow { opacity: 1; transform: translateX(0); }
+  .course-card:hover .open-btn { background: var(--accent); color: #000; }
+
+  /* Per-course accent colours */
+  .c-ds { --accent: var(--ds); border-left-color: var(--ds); }
+  .c-se { --accent: var(--se); border-left-color: var(--se); }
+  .c-cy { --accent: var(--cy); border-left-color: var(--cy); }
+  .c-ee { --accent: var(--ee); border-left-color: var(--ee); }
+  .c-ai { --accent: var(--ai); border-left-color: var(--ai); }
+
+  .course-icon {
+    font-size: 44px; line-height: 1;
+    text-align: center;
+  }
+
+  .course-body { min-width: 0; }
+
+  .course-num {
+    font-family: 'JetBrains Mono'; font-size: 10px;
+    color: var(--muted); letter-spacing: 0.16em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+
+  .course-name {
+    font-family: 'Bebas Neue'; font-size: 36px;
+    letter-spacing: 1px; line-height: 1;
+    color: var(--text); margin-bottom: 8px;
+  }
+
+  .course-desc {
+    font-size: 13px; font-weight: 300;
+    color: var(--muted); line-height: 1.5;
+    max-width: 540px;
+  }
+
+  .course-tags {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;
+  }
+  .tag {
+    font-family: 'JetBrains Mono'; font-size: 10px;
+    padding: 3px 10px; border-radius: 4px;
+    border: 1px solid; letter-spacing: 0.06em;
+    opacity: 0.7;
+  }
+  .c-ds .tag { border-color: rgba(20,184,166,0.4); color: var(--ds); }
+  .c-se .tag { border-color: rgba(56,189,248,0.4); color: var(--se); }
+  .c-cy .tag { border-color: rgba(239,68,68,0.4);  color: var(--cy); }
+  .c-ee .tag { border-color: rgba(249,115,22,0.4); color: var(--ee); }
+  .c-ai .tag { border-color: rgba(168,85,247,0.4); color: var(--ai); }
+  .c-as .tag { border-color: rgba(6,182,212,0.4); color: var(--as); }
+  .c-me  { --accent: var(--me);  border-left-color: var(--me);  background: rgba(249,115,22,0.04); }
+  .c-ae  { --accent: var(--ae);  border-left-color: var(--ae);  background: rgba(56,189,248,0.04); }
+  .c-ele { --accent: var(--ele); border-left-color: var(--ele); background: rgba(250,204,21,0.04); }
+  .c-mat { --accent: var(--mat); border-left-color: var(--mat); background: rgba(167,139,250,0.04); }
+  .c-che { --accent: var(--che); border-left-color: var(--che); background: rgba(52,211,153,0.04); }
+  .c-se2 { --accent: var(--se2); border-left-color: var(--se2); background: rgba(14,165,233,0.04); }
+  .c-mfg { --accent: var(--mfg); border-left-color: var(--mfg); background: rgba(251,146,60,0.04); }
+  .c-ie  { --accent: var(--ie);  border-left-color: var(--ie);  background: rgba(45,212,191,0.04); }
+  .c-bba { --accent: var(--bba); border-left-color: var(--bba); background: rgba(129,140,248,0.04); }
+  .c-phy { --accent: var(--phy); border-left-color: var(--phy); background: rgba(192,132,252,0.04); }
+  .c-me .tag  { border-color: rgba(249,115,22,0.4);  color: var(--me); }
+  .c-ae .tag  { border-color: rgba(56,189,248,0.4);  color: var(--ae); }
+  .c-ele .tag { border-color: rgba(250,204,21,0.4);  color: var(--ele); }
+  .c-mat .tag { border-color: rgba(167,139,250,0.4); color: var(--mat); }
+  .c-che .tag { border-color: rgba(52,211,153,0.4);  color: var(--che); }
+  .c-se2 .tag { border-color: rgba(14,165,233,0.4);  color: var(--se2); }
+  .c-mfg .tag { border-color: rgba(251,146,60,0.4);  color: var(--mfg); }
+  .c-ie .tag  { border-color: rgba(45,212,191,0.4);  color: var(--ie); }
+  .c-bba .tag { border-color: rgba(129,140,248,0.4); color: var(--bba); }
+  .c-phy .tag { border-color: rgba(192,132,252,0.4); color: var(--phy); }
+  .c-as .tag { border-color: rgba(34,197,94,0.4);  color: var(--as); }
+
+  .course-action {
+    display: flex; flex-direction: column;
+    align-items: flex-end; gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .open-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono'; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 12px 22px; border-radius: 6px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .open-btn .arrow {
+    opacity: 0.5; transform: translateX(-4px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .module-count {
+    font-family: 'JetBrains Mono'; font-size: 11px;
+    color: var(--muted); letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 80px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+  }
+  .footer-left { display: flex; flex-direction: column; gap: 4px; }
+  .footer-repo {
+    font-family: 'JetBrains Mono'; font-size: 12px;
+    color: rgba(255,255,255,0.4); letter-spacing: 0.06em;
+  }
+  .footer-repo a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer-repo a:hover { color: #fff; }
+  .footer-note {
+    font-size: 12px; color: var(--muted);
+  }
+  .colour-row { display: flex; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+
+  /* ── ANIMATIONS ── */
+  .course-card {
+    opacity: 0; animation: slideIn 0.5s forwards;
+  }
+  .course-card:nth-child(1) { animation-delay: 0.05s; }
+  .course-card:nth-child(2) { animation-delay: 0.12s; }
+  .course-card:nth-child(3) { animation-delay: 0.19s; }
+  .course-card:nth-child(4) { animation-delay: 0.26s; }
+  .course-card:nth-child(5) { animation-delay: 0.33s; }
+  .course-card:nth-child(6)  { animation-delay: 0.40s; }
+  .course-card:nth-child(7)  { animation-delay: 0.47s; }
+  .course-card:nth-child(8)  { animation-delay: 0.54s; }
+  .course-card:nth-child(9)  { animation-delay: 0.60s; }
+  .course-card:nth-child(10) { animation-delay: 0.66s; }
+  .course-card:nth-child(11) { animation-delay: 0.72s; }
+  .course-card:nth-child(12) { animation-delay: 0.78s; }
+  .course-card:nth-child(13) { animation-delay: 0.84s; }
+  .course-card:nth-child(14) { animation-delay: 0.90s; }
+  .course-card:nth-child(15) { animation-delay: 0.96s; }
+  .course-card:nth-child(16) { animation-delay: 1.02s; }
+    .hero { opacity: 0; animation: fadeUp 0.6s 0s forwards; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    .course-card {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .course-icon { font-size: 36px; text-align: left; }
+    .course-action { align-items: flex-start; }
+    .hero-title { font-size: 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<div class="wrapper">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-eyebrow">Free · Open Source · No Institution · No Fees</div>
+    <div class="hero-title">
+      <div class="line1">FREE UNIVERSITY</div>
+      <div class="line2">BSc + MSc CURRICULA</div>
+    </div>
+    <p class="hero-sub">16 complete degree programmes. 448 modules. Real portfolio projects. Free resources from MIT, Stanford, Harvard, fast.ai, and more. Click any course below to start.</p>
+    <div class="hero-stats">
+      <div class="stat-pill"><strong>16</strong> Programmes</div>
+      <div class="stat-pill"><strong>448</strong> Modules</div>
+      <div class="stat-pill"><strong>5 years</strong> per degree</div>
+      <div class="stat-pill"><strong>£0</strong> total cost</div>
+      <div class="stat-pill"><strong>∞</strong> lifetime access</div>
+    </div>
+  </div>
+
+  <!-- ── COURSES ── -->
+  <div class="section-label">// click to open — works in any browser</div>
+
+  <div class="courses">
+
+    <!-- DS & FinTech -->
+    <a class="course-card c-ds" href="data-science.html">
+      <div class="course-icon">📊</div>
+      <div class="course-body">
+        <div class="course-num">Programme 01 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Data Science & FinTech</div>
+        <div class="course-desc">Mathematics, Python, and statistics through to machine learning, NLP for finance, algorithmic trading, blockchain, and MSc-level financial data modelling.</div>
+        <div class="course-tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Algorithmic Trading</span>
+          <span class="tag">Financial Modelling</span>
+          <span class="tag">Blockchain</span>
+          <span class="tag">NLP for Finance</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+    <!-- Software Engineering -->
+    <a class="course-card c-se" href="software-engineering.html">
+      <div class="course-icon">💻</div>
+      <div class="course-body">
+        <div class="course-num">Programme 02 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Software Engineering</div>
+        <div class="course-desc">Programming fundamentals through to distributed systems, compiler design, formal methods (TLA+), high-performance computing, and MSc-level ML engineering.</div>
+        <div class="course-tags">
+          <span class="tag">Algorithms & DSA</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">Compilers</span>
+          <span class="tag">DevOps & Cloud</span>
+          <span class="tag">Formal Methods</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+    <!-- Cybersecurity -->
+    <a class="course-card c-cy" href="cybersecurity.html">
+      <div class="course-icon">🔒</div>
+      <div class="course-body">
+        <div class="course-num">Programme 03 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Cybersecurity</div>
+        <div class="course-desc">Networking and Linux through to advanced red teaming, malware analysis, post-quantum cryptography, AI-powered security, and graduate-level vulnerability research.</div>
+        <div class="course-tags">
+          <span class="tag">Penetration Testing</span>
+          <span class="tag">Malware Analysis</span>
+          <span class="tag">Cryptography</span>
+          <span class="tag">Red Teaming</span>
+          <span class="tag">Threat Intelligence</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+    <!-- Electronic Engineering -->
+    <a class="course-card c-ee" href="electronic-engineering.html">
+      <div class="course-icon">⚡</div>
+      <div class="course-body">
+        <div class="course-num">Programme 04 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Electronic Engineering</div>
+        <div class="course-desc">Circuit theory and digital logic through to FPGA design, embedded RTOS, DSP, RF and wireless communications, VLSI, and autonomous systems.</div>
+        <div class="course-tags">
+          <span class="tag">Circuits & PCB</span>
+          <span class="tag">FPGA & VHDL</span>
+          <span class="tag">Embedded / ARM</span>
+          <span class="tag">DSP & RF</span>
+          <span class="tag">TinyML</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+    <!-- Artificial Intelligence -->
+    <a class="course-card c-ai" href="ai.html">
+      <div class="course-icon">🧠</div>
+      <div class="course-body">
+        <div class="course-num">Programme 05 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Artificial Intelligence</div>
+        <div class="course-desc">Mathematical foundations through to deep learning, LLMs, diffusion models, reinforcement learning, AI safety and alignment, and graduate-level AI research.</div>
+        <div class="course-tags">
+          <span class="tag">Deep Learning</span>
+          <span class="tag">LLMs & Transformers</span>
+          <span class="tag">Generative AI</span>
+          <span class="tag">AI Safety</span>
+          <span class="tag">AI Agents</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+
+    <!-- Robotics, AI & Autonomous Vehicles -->
+    <a class="course-card c-as" href="robotics-ai-autonomous-vehicles.html">
+      <div class="course-icon">🤖</div>
+      <div class="course-body">
+        <div class="course-num">Programme 06 · BSc + MSc · 28 modules · 5 years</div>
+        <div class="course-name">Robotics, AI & Autonomous Vehicles</div>
+        <div class="course-desc">From mechanics and electronics through to SLAM, deep learning perception, autonomous driving, multi-robot systems, and graduate-level control and AI engineering.</div>
+        <div class="course-tags">
+          <span class="tag">SLAM & Navigation</span>
+          <span class="tag">Autonomous Vehicles</span>
+          <span class="tag">Robot Vision</span>
+          <span class="tag">Control Systems</span>
+          <span class="tag">ML for Robotics</span>
+        </div>
+      </div>
+      <div class="course-action">
+        <div class="open-btn">Open <span class="arrow">→</span></div>
+        <div class="module-count">28 modules · 5 years</div>
+      </div>
+    </a>
+
+
+    <!-- Autonomous Systems MSc -->
+
+  </div>
+    <!-- Mechanical Engineering -->
+    <a class="course-card c-me" href="mechanical-engineering.html">
+      <div class="course-icon">⚙️</div>
+      <div class="course-body">
+        <div class="course-num">Programme 07 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Mechanical Engineering</div>
+        <div class="course-desc">Statics, thermodynamics, fluid mechanics, FEA, CFD, manufacturing, and graduate-level fracture mechanics, advanced dynamics, and computational optimisation.</div>
+        <div class="course-tags">
+          <span class="tag">FEA & CFD</span><span class="tag">Thermodynamics</span><span class="tag">Machine Design</span><span class="tag">OpenFOAM</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Aerospace Engineering -->
+    <a class="course-card c-ae" href="aerospace-engineering.html">
+      <div class="course-icon">✈️</div>
+      <div class="course-body">
+        <div class="course-num">Programme 08 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Aerospace Engineering</div>
+        <div class="course-desc">Aerodynamics, aircraft structures, propulsion, orbital mechanics, spacecraft systems, and graduate-level MDO, hypersonics, and autonomous flight.</div>
+        <div class="course-tags">
+          <span class="tag">Aerodynamics</span><span class="tag">Orbital Mechanics</span><span class="tag">OpenFOAM</span><span class="tag">GMAT</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Electrical Engineering -->
+    <a class="course-card c-ele" href="electrical-engineering.html">
+      <div class="course-icon">⚡</div>
+      <div class="course-body">
+        <div class="course-num">Programme 09 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Electrical Engineering</div>
+        <div class="course-desc">Circuit theory, power systems, electrical machines, power electronics, VLSI, RF engineering, and graduate-level smart grids, EV powertrains, and advanced control.</div>
+        <div class="course-tags">
+          <span class="tag">Power Electronics</span><span class="tag">Smart Grids</span><span class="tag">VHDL & FPGA</span><span class="tag">EVs</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Materials Science -->
+    <a class="course-card c-mat" href="materials-science.html">
+      <div class="course-icon">🔬</div>
+      <div class="course-body">
+        <div class="course-num">Programme 10 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Materials Science</div>
+        <div class="course-desc">Crystal structure, thermodynamics, mechanical behaviour, composites, nanomaterials, biomaterials, and graduate-level DFT, ML materials discovery, and energy materials.</div>
+        <div class="course-tags">
+          <span class="tag">DFT & ab initio</span><span class="tag">Nanomaterials</span><span class="tag">Battery Materials</span><span class="tag">LAMMPS</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Chemistry -->
+    <a class="course-card c-che" href="chemistry.html">
+      <div class="course-icon">⚗️</div>
+      <div class="course-body">
+        <div class="course-num">Programme 11 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Chemistry</div>
+        <div class="course-desc">Organic synthesis, physical chemistry, inorganic chemistry, spectroscopy, computational chemistry, and graduate-level quantum chemistry, drug discovery, and catalysis.</div>
+        <div class="course-tags">
+          <span class="tag">Organic Synthesis</span><span class="tag">QM/DFT (ORCA)</span><span class="tag">Drug Discovery</span><span class="tag">Green Chemistry</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Systems Engineering -->
+    <a class="course-card c-se2" href="systems-engineering.html">
+      <div class="course-icon">🔧</div>
+      <div class="course-body">
+        <div class="course-num">Programme 12 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Systems Engineering</div>
+        <div class="course-desc">Requirements, MBSE, RAMS, safety engineering, human factors, and graduate-level digital engineering, safety-critical AI systems, and complex programme management.</div>
+        <div class="course-tags">
+          <span class="tag">MBSE & SysML</span><span class="tag">Capella</span><span class="tag">STAMP/STPA</span><span class="tag">IEC 61508</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Manufacturing Engineering -->
+    <a class="course-card c-mfg" href="manufacturing-engineering.html">
+      <div class="course-icon">🏭</div>
+      <div class="course-body">
+        <div class="course-num">Programme 13 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Manufacturing Engineering</div>
+        <div class="course-desc">Machining, quality, lean, automation, supply chain, additive manufacturing, and graduate-level Industry 4.0, digital twins, and smart manufacturing.</div>
+        <div class="course-tags">
+          <span class="tag">Lean & Six Sigma</span><span class="tag">Industry 4.0</span><span class="tag">Additive Mfg</span><span class="tag">Digital Twin</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Industrial Engineering -->
+    <a class="course-card c-ie" href="industrial-engineering.html">
+      <div class="course-icon">⚙️</div>
+      <div class="course-body">
+        <div class="course-num">Programme 14 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Industrial Engineering</div>
+        <div class="course-desc">Operations research, simulation, queuing theory, supply chain, quality, and graduate-level stochastic programming, ML for IE, healthcare systems, and humanitarian logistics.</div>
+        <div class="course-tags">
+          <span class="tag">Operations Research</span><span class="tag">SimPy Simulation</span><span class="tag">Healthcare IE</span><span class="tag">OR-Tools</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Business Administration -->
+    <a class="course-card c-bba" href="business-administration.html">
+      <div class="course-icon">💼</div>
+      <div class="course-body">
+        <div class="course-num">Programme 15 · BSc + MBA · 28 modules</div>
+        <div class="course-name">Business Administration</div>
+        <div class="course-desc">Accounting, finance, strategy, marketing, operations, and MBA-level corporate finance, advanced strategy, leadership, and global emerging market strategy.</div>
+        <div class="course-tags">
+          <span class="tag">Corporate Finance</span><span class="tag">Strategy</span><span class="tag">Entrepreneurship</span><span class="tag">ESG & Governance</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+    <!-- Physics -->
+    <a class="course-card c-phy" href="physics.html">
+      <div class="course-icon">⚛️</div>
+      <div class="course-body">
+        <div class="course-num">Programme 16 · BSc + MSc · 28 modules</div>
+        <div class="course-name">Physics</div>
+        <div class="course-desc">Classical mechanics, quantum mechanics, electromagnetism, relativity, and graduate-level QFT, general relativity, condensed matter, and gravitational wave analysis with LIGO data.</div>
+        <div class="course-tags">
+          <span class="tag">Quantum Mechanics</span><span class="tag">QFT & GR</span><span class="tag">LIGO Data</span><span class="tag">Qiskit</span>
+        </div>
+      </div>
+      <div class="course-action"><div class="open-btn">Open <span class="arrow">→</span></div><div class="module-count">28 modules · 5 years</div></div>
+    </a>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-left">
+      <div class="footer-repo">
+        GitHub: <a href="https://github.com/Migdad-latif/free-university-level-bsc-msc" target="_blank">
+          github.com/Migdad-latif/free-university-level-bsc-msc
+        </a>
+      </div>
+      <div class="footer-note">MIT Licence · No affiliation with any university · Completion does not award a formal qualification</div>
+    </div>
+    <div class="colour-row">
+      <div class="dot" style="background:var(--ds)"></div>
+      <div class="dot" style="background:var(--se)"></div>
+      <div class="dot" style="background:var(--cy)"></div>
+      <div class="dot" style="background:var(--ee)"></div>
+      <div class="dot" style="background:var(--ai)"></div>
+      <div class="dot" style="background:var(--as)"></div>
+      <div class="dot" style="background:var(--me)"></div>
+      <div class="dot" style="background:var(--ae)"></div>
+      <div class="dot" style="background:var(--ele)"></div>
+      <div class="dot" style="background:var(--mat)"></div>
+      <div class="dot" style="background:var(--che)"></div>
+      <div class="dot" style="background:var(--se2)"></div>
+      <div class="dot" style="background:var(--mfg)"></div>
+      <div class="dot" style="background:var(--ie)"></div>
+      <div class="dot" style="background:var(--bba)"></div>
+      <div class="dot" style="background:var(--phy)"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

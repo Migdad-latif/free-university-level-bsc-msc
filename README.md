@@ -10,297 +10,133 @@
 
 No tuition fees. No admissions process. No gatekeeping. Six complete BSc + MSc curricula  each with 28 structured modules, real portfolio projects, and 100% free resources  built for anyone, anywhere in the world.
 
----
-
-## 🌐 Live Website
-
-**👉 [migdad-latif.github.io/free-university-level-bsc-msc](https://migdad-latif.github.io/free-university-level-bsc-msc/)**
-
----
-
-## 📚 The Six Programmes
-
-| # | Programme | Link | Modules |
-|---|-----------|------|---------|
-| 1 | 📊 Data Science & FinTech | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/data-science.html) | 28 |
-| 2 | 💻 Software Engineering | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/software-engineering.html) | 28 |
-| 3 | 🔒 Cybersecurity | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/cybersecurity.html) | 28 |
-| 4 | ⚡ Electronic Engineering | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/electronic-engineering.html) | 28 |
-| 5 | 🧠 Artificial Intelligence | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/ai.html) | 28 |
-| 6 | 🤖 Robotics, AI & Autonomous Vehicles | [▶ Open](https://migdad-latif.github.io/free-university-level-bsc-msc/autonomous-systems.html )| 28 |
-
-Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded.
-
----
-
-## 📊 1. Data Science & FinTech
-
-A complete 5-year curriculum in data science with financial technology specialisation. Covers the full pipeline from mathematics and Python through to machine learning, deep learning, NLP for finance, algorithmic trading, and MSc-level financial data modelling.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Mathematical & Programming Foundations | Mathematics for DS, Python Programming, Statistics & Probability, Databases & SQL, Intro to Finance & FinTech, Data Wrangling & EDA |
-| Year 2 | Core Data Science & Financial Applications | Machine Learning, Data Visualisation, Time Series Analysis, Financial Mathematics, Big Data & Cloud, Software Engineering |
-| Year 3 | FinTech Specialisation & Capstone | Deep Learning, NLP for Finance, Risk Modelling, Algorithmic Trading, RegTech & Compliance, BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Core MSc Methods | Big Data Analysis, Data Programming in Python, Statistics & Statistical Data Mining, Machine Learning, Financial Data Modelling |
-| MSc Year 2 | FinTech Specialist | Blockchain Programming, Financial Markets, Neural Networks, Natural Language Processing, Final Project |
-
-**Key resources:** MIT OCW · fast.ai · Coursera (audit) · Kaggle · Harvard CS50 · Hugging Face · StatQuest · arXiv q-fin · ISLR · d2l.ai
-
-**BSc portfolio projects include:** Credit default prediction (XGBoost/SHAP) · Stock volatility forecaster (LSTM) · Portfolio optimiser (Markowitz) · Fraud detection (autoencoders) · Systematic trading backtest · Production ML API (FastAPI/Docker)
-
----
-
-## 💻 2. Software Engineering
-
-A complete 5-year curriculum from programming fundamentals to graduate-level distributed systems, programming language theory, formal methods, and high-performance computing.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Foundations | Intro to Programming, Discrete Mathematics, Computer Architecture, Data Structures & Algorithms, SDLC & Agile, Web Fundamentals |
-| Year 2 | Core Engineering | Databases & SQL, Operating Systems, Networks, Design Patterns, Testing & QA, DevOps & Cloud |
-| Year 3 | Advanced & Capstone | Compiler Design, Distributed Systems, System Design, Concurrency, Security Engineering, BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Advanced Methods | Advanced Algorithms & Complexity, PL Theory & Type Systems, Advanced Software Architecture, Formal Methods (TLA+/Z3), High-Performance Systems |
-| MSc Year 2 | Research | ML Engineering, Cloud-Native & Kubernetes, Research Methods, Ethics & Professionalism, MSc Dissertation |
-
-**Key resources:** MIT OCW · Crafting Interpreters · OSTEP · System Design Primer · TLA+ (Lamport) · The Odin Project
-
-**BSc portfolio projects include:** Unix shell in C · Distributed key-value store (Raft) · URL shortener at scale · Concurrent web crawler · Multi-client chat server · BSc Capstone system
-
----
-
-## 🔒 3. Cybersecurity
-
-A complete 5-year curriculum from networking and Linux fundamentals through to advanced red teaming, malware analysis, post-quantum cryptography, AI-powered security, and graduate-level vulnerability research.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Foundations | Networking Fundamentals, Linux & OS Security, Cryptography, Programming for Security, Security Frameworks (MITRE ATT&CK/NIST), Web Security |
-| Year 2 | Core Security | Network Penetration Testing, Digital Forensics, Malware Analysis, Secure Software Development, Security Operations, Cloud Security |
-| Year 3 | Advanced & Capstone | Advanced Penetration Testing, Malware Dev & Reverse Engineering, Mobile & IoT Security, AI in Cybersecurity, IR & Threat Intelligence, BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Advanced Methods | Advanced Cryptography (PQC/ZKPs), Advanced Red Teaming, Security Architecture & Zero Trust, Threat Intelligence & Attribution, Vulnerability Research |
-| MSc Year 2 | Research | DFIR at Scale, Cyber Law & Governance, Research Methods, Emerging Threats, MSc Dissertation |
-
-**Key resources:** PortSwigger Web Security Academy · TryHackMe · Hack The Box · CryptoHack · Ghidra (NSA) · OWASP · pwn.college
-
-**BSc portfolio projects include:** Full network pentest report · Digital forensics investigation · Malware analysis report · DevSecOps pipeline · SOC analyst SIEM simulation · Red team lab engagement
-
----
-
-## ⚡ 4. Electronic Engineering
-
-A complete 5-year curriculum from circuit theory and digital logic through to FPGA design, embedded RTOS, digital signal processing, RF and wireless communications, VLSI, and graduate-level autonomous systems.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Foundations | Circuit Theory, Electronics Fundamentals, Digital Logic Design, Mathematics for Engineers, Measurement & Instrumentation, Programming for Electronics |
-| Year 2 | Core Engineering | Analogue Electronics, Digital Systems & FPGAs, Embedded Systems (ARM/FreeRTOS), Signals & Systems, Power Electronics, PCB Design |
-| Year 3 | Advanced & Capstone | Digital Signal Processing, RF & Wireless (GNU Radio), Control Systems (PID), Sensors & IoT (ESP32), VLSI Fundamentals, BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Advanced Methods | Advanced DSP (Kalman/compressed sensing), Advanced Embedded & Safety-Critical, FPGA & HLS, Power Systems & EVs, Communication Systems (5G/OFDM) |
-| MSc Year 2 | Research | Research Methods, ML for Engineering (TinyML), MEMS & Nanotechnology, Autonomous Systems & Robotics, MSc Dissertation |
-
-**Key resources:** MIT OCW · Nand2Tetris · LTspice (free) · KiCad (free) · GNU Radio · Wokwi Simulator · FreeRTOS · Ben Eater (YouTube)
-
-**BSc portfolio projects include:** CPU simulator (Nand2Tetris) · Arduino sensor station + PCB · RTOS sensor monitor (STM32) · Active Butterworth filter design · FM radio receiver (GNU Radio/SDR) · PID motor speed controller
-
----
-
-## 🧠 5. Artificial Intelligence
-
-A complete 5-year curriculum from mathematical foundations through deep learning, computer vision, NLP, reinforcement learning, large language models, generative AI, AI safety, and graduate-level AI research.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Foundations | Maths for AI (linear algebra/calculus/probability), Python for AI, Classical ML, Data Engineering, Statistical Inference (Bayesian), AI Ethics |
-| Year 2 | Core AI | Deep Learning, Computer Vision, NLP & Transformers, Reinforcement Learning, ML Systems & MLOps, Knowledge Representation |
-| Year 3 | Advanced & Capstone | Large Language Models, Generative AI (diffusion/GANs), AI Agents, AI Safety & Alignment, AI for Science (GNNs/AlphaFold), BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Advanced Methods | Deep Learning Theory (NTK/double descent), Advanced RL (SAC/offline RL), Advanced NLP (scaling laws/emergent capabilities), Probabilistic Deep Learning, Advanced Computer Vision (ViT/NeRF) |
-| MSc Year 2 | Research | AI Research Methods, AI Governance (EU AI Act), Interpretability & Explainability, AI Research Frontiers, MSc Dissertation |
-
-**Key resources:** fast.ai · Stanford CS231n/CS224N · DeepMind RL Course · Andrej Karpathy (YouTube) · Hugging Face · Papers with Code · Weights & Biases
-
-**BSc portfolio projects include:** Deep learning from scratch (PyTorch) · YOLOv8 custom object detector · Fine-tuned BERT NLP pipeline · PPO RL agent · Fine-tuned LLM with QLoRA · Multi-step AI agent (LangGraph)
-
----
-
-## 🤖 6. Robotics, AI & Autonomous Vehicles
-
-A complete 5-year BSc + MSc curriculum covering robotics, artificial intelligence, and autonomous vehicle engineering. From mechanics and sensing foundations through to SLAM, deep learning perception, autonomous driving stacks, multi-robot systems, and graduate-level AI engineering and control.
-
-### BSc — Years 1 to 3 (18 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| Year 1 | Foundations | Mathematics for Robotics & AI, Electronics & Sensing, Programming for Robotics, Mechanics & Dynamics, Digital Systems & MCUs, Introduction to Robotics |
-| Year 2 | Core Skills | Robot Kinematics & Dynamics, Computer Vision for Robotics, Control Systems, Mobile Robot Navigation, ML for Robotics, Autonomous Vehicle Fundamentals |
-| Year 3 | Advanced & Capstone | SLAM & 3D Perception, Deep Learning for Autonomous Systems, Multi-Robot Systems & Swarms, Drone & Aerial Robotics, Human-Robot Interaction, BSc Capstone |
-
-### MSc — Years 4 to 5 (10 modules)
-
-| Year | Focus | Modules |
-|------|-------|---------|
-| MSc Year 1 | Advanced Methods | Advanced Signal Processing & Communications, Advanced Robotics, Imaging & Vision, Engineering Programming (CUDA/AUTOSAR), System Dynamics & Control (MPC/iLQR), Embedded Systems for Autonomous Platforms (ISO 26262) |
-| MSc Year 2 | Research & Dissertation | ML for Autonomous Systems (end-to-end, world models), AI for Engineering Design (PINNs, Bayesian optimisation), Human-Machine Teaming & Ethics, Research Methods (ICRA/IROS format), MSc Dissertation (60 credits) |
-
-**Key resources:** MIT OCW · ROS 2 · Gazebo · OpenCV · PyTorch · CARLA Simulator (free) · PX4 (free) · GNU Radio · GTSAM · Weights & Biases
-
-**BSc portfolio projects include:** Sensor interface station · First ROS 2 robot · Inverted pendulum controller · 6-DOF arm simulation · Autonomous navigation system · CARLA AV agent · 3D SLAM on KITTI dataset · Multi-robot warehouse system · Autonomous quadrotor mission
-
-**MSc portfolio projects include:** Multi-sensor fusion pipeline (UKF + particle filter) · Foundation model robot (CLIP + LLM + ROS 2) · GPU-accelerated perception pipeline (CUDA + TensorRT) · Trajectory optimisation in CARLA (iLQR + MPC) · Safety-critical AV ECU (ISO 26262 + Zephyr) · End-to-end driving agent on CARLA leaderboard · MSc Dissertation
-
----
-
-## 🗂 Repository Contents
-
-```
+🌐 Live Website
+👉 migdad-latif.github.io/free-university-level-bsc-msc
+
+📚 The 16 Programmes
+#ProgrammeLinkModules1📊 Data Science & FinTech▶ Open282💻 Software Engineering▶ Open283🔒 Cybersecurity▶ Open284⚡ Electronic Engineering▶ Open285🧠 Artificial Intelligence▶ Open286🤖 Robotics, AI & Autonomous Vehicles▶ Open287⚙️ Mechanical Engineering▶ Open288✈️ Aerospace Engineering▶ Open289⚡ Electrical Engineering▶ Open2810🔬 Materials Science▶ Open2811⚗️ Chemistry▶ Open2812🔧 Systems Engineering▶ Open2813🏭 Manufacturing Engineering▶ Open2814⚙️ Industrial Engineering▶ Open2815💼 Business Administration▶ Open2816⚛️ Physics▶ Open28
+Each file is a single self-contained HTML app. Open it in any browser — no installation, no account, works offline once loaded. Progress is saved automatically in your browser.
+
+📊 Programme Summaries
+1 · Data Science & FinTech
+BSc: Mathematics for DS · Python · Statistics · Databases · Finance & FinTech · Data Wrangling · Machine Learning · Visualisation · Time Series · Financial Mathematics · Big Data · Software Engineering · Deep Learning · NLP for Finance · Risk Modelling · Algorithmic Trading · RegTech · BSc Capstone
+MSc: Big Data Analysis · Data Programming · Statistical Data Mining · Machine Learning · Financial Data Modelling · Blockchain · Financial Markets · Neural Networks · NLP · Final Project
+2 · Software Engineering
+BSc: Intro to Programming · Discrete Maths · Computer Architecture · Data Structures & Algorithms · SDLC & Agile · Web Fundamentals · Databases · Operating Systems · Networks · Design Patterns · Testing & QA · DevOps & Cloud · Compiler Design · Distributed Systems · System Design · Concurrency · Security Engineering · BSc Capstone
+MSc: Advanced Algorithms · PL Theory & Type Systems · Advanced Architecture · Formal Methods (TLA+/Z3) · High-Performance Systems · ML Engineering · Cloud-Native · Research Methods · Ethics · MSc Dissertation
+3 · Cybersecurity
+BSc: Networking · Linux & OS Security · Cryptography · Programming for Security · Security Frameworks · Web Security · Network Pentesting · Digital Forensics · Malware Analysis · Secure Software · Security Operations · Cloud Security · Advanced Pentesting · Malware Dev & RE · Mobile & IoT · AI in Cybersecurity · IR & Threat Intelligence · BSc Capstone
+MSc: Advanced Cryptography (PQC/ZKPs) · Advanced Red Teaming · Security Architecture · Threat Intelligence · Vulnerability Research · DFIR at Scale · Cyber Law · Research Methods · Emerging Threats · MSc Dissertation
+4 · Electronic Engineering
+BSc: Circuit Theory · Electronics Fundamentals · Digital Logic Design · Mathematics · Measurement · Programming · Analogue Electronics · Digital Systems & FPGAs · Embedded Systems · Signals & Systems · Power Electronics · PCB Design · DSP · RF & Wireless · Control Systems · Sensors & IoT · VLSI · BSc Capstone
+MSc: Advanced DSP · Advanced Embedded & Safety-Critical · FPGA & HLS · Power Systems & EVs · Communication Systems (5G/OFDM) · Research Methods · ML for Engineering · MEMS & Nanotechnology · Autonomous Systems · MSc Dissertation
+5 · Artificial Intelligence
+BSc: Maths for AI · Python for AI · Classical ML · Data Engineering · Statistical Inference · AI Ethics · Deep Learning · Computer Vision · NLP & Transformers · Reinforcement Learning · ML Systems & MLOps · Knowledge Representation · LLMs · Generative AI · AI Agents · AI Safety & Alignment · AI for Science · BSc Capstone
+MSc: Deep Learning Theory · Advanced RL · Advanced NLP · Probabilistic Deep Learning · Advanced Computer Vision · AI Research Methods · AI Governance · Interpretability · AI Research Frontiers · MSc Dissertation
+6 · Robotics, AI & Autonomous Vehicles
+BSc: Maths for Robotics · Electronics & Sensing · Programming for Robotics · Mechanics & Dynamics · Digital Systems & MCUs · Intro to Robotics · Robot Kinematics · Computer Vision · Control Systems · Mobile Robot Navigation · ML for Robotics · Autonomous Vehicle Fundamentals · SLAM & 3D Perception · Deep Learning for Autonomy · Multi-Robot Systems · Drone & Aerial Robotics · Human-Robot Interaction · BSc Capstone
+MSc: Advanced Signal Processing · Advanced Robotics, Imaging & Vision · Engineering Programming (CUDA/AUTOSAR) · System Dynamics & Control (MPC/iLQR) · Embedded Systems (ISO 26262) · ML for Autonomous Systems · AI for Engineering Design · Human-Machine Teaming & Ethics · Research Methods · MSc Dissertation
+7 · Mechanical Engineering
+BSc: Engineering Maths I · Statics · Thermodynamics I · Engineering Materials · Engineering Drawing & CAD · Dynamics & Kinematics · Mechanics of Materials · Fluid Mechanics · Manufacturing Processes · Thermodynamics II & Heat Transfer · Vibrations & Dynamics · Control Engineering · FEA · CFD (OpenFOAM) · Machine Design · Renewable Energy · Engineering Professionalism · BSc Capstone
+MSc: Advanced Solid Mechanics (fracture/plasticity) · Advanced CFD (LES/DNS) · Advanced Thermodynamics (exergy/CCGT) · Computational Mechanics & Optimisation (topology opt.) · Research Methods · Advanced Dynamics & Aeroelasticity · Advanced Manufacturing & Industry 4.0 · Mechatronics · Engineering Ethics & Law · MSc Dissertation
+8 · Aerospace Engineering
+BSc: Aerospace Maths · Intro to Aerodynamics (XFOIL) · Aerospace Structures I · Thermodynamics & Propulsion I · Flight Mechanics I · Aerospace Materials · Compressible Flow · Aerospace Structures II · Aircraft Performance & Design · Orbital Mechanics · Aerospace Propulsion II · Avionics & Flight Control · Computational Aerodynamics · Spacecraft Systems · Aeroelasticity · Space Mission Design · Engineering Ethics & Law · BSc Capstone
+MSc: Advanced Aerodynamics & CFD (LES/adjoint) · Advanced Spacecraft Engineering · Advanced Structural Analysis & Optimisation · Advanced Propulsion & Power (SABRE/detonation) · Research Methods · Multidisciplinary Design Optimisation · Hypersonics & Reentry · Advanced Avionics & Autonomous Flight · Space Commercialisation & Policy · MSc Dissertation
+9 · Electrical Engineering
+BSc: Circuit Theory (LTspice) · Electromagnetism · Digital Logic & Computer Architecture · Mathematics for EE · Electronic Devices · Intro Power Systems · Analogue Electronics · Power Electronics (PLECS) · Electrical Machines · Signals & Systems · Communications I (GNU Radio) · Control Systems · Power System Analysis · VLSI & Digital Design (VHDL/FPGA) · Renewable Energy Systems · RF & Microwave · Embedded Systems & IoT · BSc Capstone
+MSc: Advanced Power Electronics (MMC/SiC/GaN/HVDC) · Smart Grids & Energy Systems (PyPSA/OPF) · Advanced Communications (5G NR/massive MIMO) · High Voltage Engineering & Protection · Research Methods · Electric Vehicles & e-Mobility (FOC/BMS) · Advanced Control Systems (FCS-MPC/H-infinity) · Power System Operation & Planning · Engineering Ethics & Law · MSc Dissertation
+10 · Materials Science
+BSc: Atomic Structure & Bonding (VESTA) · Thermodynamics of Materials · Mathematics for Materials Scientists · Mechanical Behaviour · Electronic & Magnetic Properties · Materials Characterisation I (SEM/EDX/XRD) · Kinetics & Phase Transformations · Polymers · Ceramics & Glasses · Composite Materials · Electronic & Energy Materials · Materials Characterisation II (TEM/EELS/APT) · Computational Materials I (LAMMPS/MD) · Biomaterials · Nanomaterials · Failure Analysis · Sustainable Materials · BSc Capstone
+MSc: DFT & Ab Initio (Quantum ESPRESSO) · Advanced Electron Microscopy (ACTEM/operando) · Advanced Thermo & Kinetics (CALPHAD/spinodal) · Advanced Mechanics (crystal plasticity/J-integral) · Research Methods · Nanomaterials & Thin Films (CVD/ALD) · Computational Materials Design (MLIP/GNN) · Energy Storage & Conversion Materials · Materials Ethics & Law · MSc Dissertation
+11 · Chemistry
+BSc: Atomic Structure & Bonding · Organic Chemistry I (SN1/SN2/stereochemistry) · Physical Chemistry I (thermodynamics/electrochemistry) · Inorganic Chemistry I (main group/HSAB) · Mathematics & Data Analysis · Lab Skills & Safety (COSHH) · Organic Chemistry II (carbonyl/retrosynthesis) · Physical Chemistry II (kinetics/QM/spectroscopy) · Inorganic Chemistry II (transition metals/CFT) · Analytical Chemistry (NMR/MS/HPLC) · Computational Chemistry I (ORCA/HF/DFT) · Green Chemistry · Organic Chemistry III (total synthesis/cross-coupling) · Advanced Spectroscopy (NOESY/HRMS/X-ray) · Medicinal Chemistry (docking/ADMET/SAR) · Polymer & Materials Chemistry · Chemistry Ethics & Law · BSc Capstone
+MSc: Advanced Quantum Chemistry (CCSD(T)/TD-DFT/NEVPT2) · Advanced Synthesis (C-H activation/photoredox/ASKCOS) · Drug Discovery (QSAR/FBDD/PROTACs) · Advanced Inorganic Chemistry (DFT/SMMs/bioinorganic) · Research Methods · Chemical Biology (bioorthogonal/ABPP) · Supramolecular Chemistry (MOFs/molecular machines) · Advanced Catalysis (directed evolution/electrocatalysis) · Advanced Ethics & DURC · MSc Dissertation
+12 · Systems Engineering
+BSc: Systems Thinking · Requirements Engineering (EARS/IEEE 830) · Mathematics for SE · SE Process & Standards (ISO 15288/NASA SE Handbook) · System Modelling Basics (SysML/Capella/N2 charts) · Engineering Economics · MBSE (Capella/Arcadia) · System Architecture & Design · RAMS (FMEA/FTA/IEC 61508) · Human Factors (SHERPA/HEART) · Integration, Test & V&V · SE Case Studies (Challenger/MAX/NPfIT) · Safety Engineering (STAMP/STPA/GSN) · Programme Management (EVM/ISO 31000) · System of Systems (TOGAF/DoDAF) · Cybersecurity SE (NIST SP 800-160/STRIDE) · Agile SE (SAFe/DevSecOps) · BSc Capstone
+MSc: Advanced Systems Theory & Complexity (FRAM/CAS) · Digital Engineering & Model-Based Enterprise (Digital Twins/SysML v2/DoD DE Strategy) · Advanced Safety Engineering (PRA/CCF/AI safety) · SE for AI & Autonomous Systems (AMLAS/EU AI Act) · Research Methods · Systems Architecting (ISO 42010/ADRs/technical debt) · SE for Emerging Technologies (SMRs/quantum/TRLs) · SE Leadership & Strategy (CMMI/SOW) · SE Ethics & Law (INCOSE/LAWS/dual-use) · MSc Dissertation
+13 · Manufacturing Engineering
+BSc: Manufacturing Maths & SPC · Materials for Manufacturing · Manufacturing Processes I (machining/forming) · Engineering Drawing & GD&T · Intro Production Systems (SimPy) · HSE in Manufacturing · Manufacturing Processes II (welding/casting/AM) · Quality Engineering (SPC/DoE/DMAIC/Six Sigma) · Production Planning & Control (MRP/JIT/Kanban) · Automation & Robotics (G-code/PLC/robots) · Supply Chain Management · Lean Manufacturing (TPS/VSM/SMED/OEE) · CIM & Digital Factory (MES/ERP/MTConnect) · Advanced Additive Manufacturing · Industry 4.0 & Smart Manufacturing · Manufacturing Sustainability (LCA/circular economy) · Project Management (APQP/PPAP/EVM) · BSc Capstone
+MSc: Advanced Manufacturing Processes & Modelling (FEM) · Smart Manufacturing Advanced (ISO 23247/AAS/federated learning) · Advanced Quality & Reliability (multivariate SPC/ALT/Weibull) · Operations Research for Manufacturing (LP/GA/SA/NSGA-II) · Research Methods · Advanced AM Research (in-situ monitoring/ML defect prediction) · Supply Chain Resilience (Monte Carlo risk/EU CSDDD) · Advanced Robotics & Collaborative Manufacturing (cobots/ISO/TS 15066) · Manufacturing Ethics & Law · MSc Dissertation
+14 · Industrial Engineering
+BSc: IE Mathematics · Introduction to IE (Taylor/Gilbreth/TOC) · Statistics & Probability · Technical Communication (VSM/swimlane) · Introduction to Operations Research (LP/simplex) · Work Systems Design & Ergonomics (RULA/NIOSH/MTM) · OR II — Integer & Nonlinear Programming · Stochastic Models & Queuing Theory (M/M/1/newsvendor) · Discrete-Event Simulation (SimPy) · Supply Chain & Logistics · Quality Engineering & Six Sigma · Production & Operations Management · Metaheuristics (GA/SA/tabu/ACO) · Healthcare Systems Engineering · Financial Engineering & Economic Analysis · Simulation Optimisation & Data-Driven IE · IE Ethics & Professionalism · BSc Capstone
+MSc: Advanced Optimisation (stochastic/robust/ADP/game theory/Benders) · Applied ML for IE (XGBoost/LSTM/DQN scheduling) · Advanced Simulation (Mesa ABM/Vensim/hybrid) · Engineering Management (balanced scorecard/Kotter/BPR) · Research Methods · Decision Science (Bayesian opt/prescriptive analytics/SHAP) · Sustainable & Humanitarian IE (carbon-constrained OR/SDGs) · Advanced Human Factors (HRA/THERP/ATHEANA/neuroergonomics) · Advanced IE Ethics · MSc Dissertation
+15 · Business Administration (BSc + MBA)
+BSc: Microeconomics · Financial Accounting · Management & OB · Quantitative Methods · Business Law & Ethics · Introduction to Marketing · Managerial Accounting · Corporate Finance (CAPM/WACC/DCF) · Strategic Management (Porter/VRIO) · Human Resource Management · Operations Management · Business Research Methods · Advanced Marketing (RFM/CLV/A-B testing) · Entrepreneurship & Innovation (BMC/lean startup/VC) · International Business (OLI/Hofstede/FDI) · Business Ethics & Corporate Governance (UK Code/ESG/TCFD) · Business Intelligence & Analytics (SQL/Power BI/ML) · BSc Capstone
+MBA: Advanced Corporate Finance & Valuation (LBO/M&A/Black-Scholes) · Advanced Strategy (dynamic capabilities/platform/Blue Ocean) · Leadership & Organisational Change (EI/psychological safety/Kotter) · Marketing Strategy & Brand Management (CLV/value-based pricing/IMC) · MBA Research & Analytics · Corporate Governance & Sustainability (ISSB/SBTi/CSRD) · Global Strategy & Emerging Markets (institutional voids/Africa/geopolitical risk) · Entrepreneurial Finance & VC (term sheets/cap tables) · MBA Ethics & Responsible Leadership · MBA Dissertation
+16 · Physics
+BSc: Physics Maths I (vector calculus/PDEs/Fourier) · Classical Mechanics (Lagrangian/Hamiltonian/chaos) · Electromagnetism I (Maxwell/FDTD) · Waves, Optics & Acoustics · Special Relativity (4-vectors/E=mc²) · Experimental Physics & Data Analysis (GUM/chi-squared) · Quantum Mechanics I (Schrödinger/harmonic oscillator/hydrogen) · Thermodynamics & Statistical Mechanics (partition functions/Ising) · Electromagnetism II (multipoles/radiation/Lienard-Wiechert) · Quantum Mechanics II (perturbation theory/Fermi golden rule/WKB) · Solid State Physics I (band structure/phonons/Bloch) · Nuclear & Particle Physics I (Standard Model/CERN open data) · Intro to QFT (canonical quantisation/Dirac/QED) · General Relativity (Einstein equations/Schwarzschild/GW) · Condensed Matter Physics (BCS/topological/Ising critical exponents) · Astrophysics & Cosmology (FLRW/CMB/Planck data) · Atomic & Molecular Physics (fine structure/laser cooling) · BSc Capstone
+MSc: Advanced QM & Quantum Information (path integrals/density matrices/Qiskit on IBM) · Advanced QFT (renormalisation group/QCD/Higgs/electroweak) · Advanced Statistical Mechanics (Wilson RG/CFT/Langevin/Jarzynski) · Advanced Astrophysics & Gravitational Physics (LIGO data analysis/Hawking radiation/PyCBC) · Research Methods · Quantum Gravity & String Theory (AdS/CFT/spin foams/ER=EPR) · Advanced Computational Physics (DMRG/neural network quantum states/N-body) · Advanced Particle Physics (PDFs/Higgs/SUSY/LHC open data) · Physics Ethics (DURC/nuclear weapons/physics in intelligence) · MSc Dissertation
+
+🗂 Repository Contents
 free-university-level-bsc-msc/
 ├── README.md
 ├── index.html                              # 🌐 Landing page — start here
+│
+├── # ── Original 5 programmes ──
 ├── data-science.html                       # 📊 Data Science & FinTech
 ├── software-engineering.html               # 💻 Software Engineering
 ├── cybersecurity.html                      # 🔒 Cybersecurity
 ├── electronic-engineering.html             # ⚡ Electronic Engineering
 ├── ai.html                                 # 🧠 Artificial Intelligence
-└── robotics-ai-autonomous-vehicles.html    # 🤖 Robotics, AI & Autonomous Vehicles
-```
+│
+├── # ── Engineering & Technology ──
+├── robotics-ai-autonomous-vehicles.html    # 🤖 Robotics, AI & Autonomous Vehicles
+├── mechanical-engineering.html             # ⚙️ Mechanical Engineering
+├── aerospace-engineering.html              # ✈️ Aerospace Engineering
+├── electrical-engineering.html             # ⚡ Electrical Engineering
+├── systems-engineering.html               # 🔧 Systems Engineering
+├── manufacturing-engineering.html          # 🏭 Manufacturing Engineering
+├── industrial-engineering.html             # ⚙️ Industrial Engineering
+│
+├── # ── Sciences ──
+├── materials-science.html                  # 🔬 Materials Science
+├── chemistry.html                          # ⚗️ Chemistry
+├── physics.html                            # ⚛️ Physics
+│
+└── # ── Business & Social Sciences ──
+    └── business-administration.html        # 💼 Business Administration / MBA
 
----
-
-## 🚀 How to Use
-
-### Option 1: Visit the live site
-**[migdad-latif.github.io/free-university-level-bsc-msc](https://migdad-latif.github.io/free-university-level-bsc-msc/)**
-
+🚀 How to Use
+Option 1: Visit the live site
+migdad-latif.github.io/free-university-level-bsc-msc
 Click any course card to open the full interactive curriculum in your browser.
+Option 2: Clone and open locally
+bashgit clone https://github.com/Migdad-latif/free-university-level-bsc-msc.git
+Open index.html in any browser, then click any course to start.
+Option 3: Download ZIP
+Click the green Code button → Download ZIP → extract → open index.html.
 
-### Option 2: Clone and open locally
-```bash
-git clone https://github.com/Migdad-latif/free-university-level-bsc-msc.git
-```
-Open `index.html` in any browser, then click any course to start.
+🧰 Tools Used Across All Programmes (All Free)
+ToolUsed InPython 3 + NumPy/SciPyAllJupyter LabAllGit + GitHubAllLaTeX / OverleafAllMATLAB/Octave (free)ME, AE, EE, Elec, SE, PhysFreeCAD (free CAD)ME, AE, MfgOpenFOAM (free CFD)ME, AECalculiX (free FEA)ME, AE, MatSciLTspice (free SPICE)Elec, EEKiCad (free PCB)Elec, EE, MfgGNU Radio (free SDR)Elec, EE, RoboticsWokwi (free MCU sim)Elec, EE, Robotics, MfgPLECS (free power sim)EEOpenDSS (free power systems)EECapella MBSE (free)SESimPy (free DES)IE, Mfg, SEPuLP + OR-Tools (free OR)IELAMMPS (free MD)MatSci, PhysQuantum ESPRESSO (free DFT)MatSci, ChemORCA (free QM)ChemRDKit (free cheminformatics)ChemAstropy (free astrophysics)PhysQiskit (free quantum computing)PhysPyCBC + GWOSC (free GW data)PhysGMAT (free space analysis)AE, RoboticsROS 2 + Gazebo (free robotics)RoboticsCARLA (free AV simulator)RoboticsPX4 (free flight controller)RoboticsPyTorch / TensorFlowAI, DS, Robotics, MfgHugging FaceAI, DSWeights & Biases (free)AI, RoboticsPower BI Desktop (free)BAGhidra (free NSA RE tool)CYTryHackMe / Hack The BoxCY
 
-### Option 3: Download ZIP
-Click the green **Code** button → **Download ZIP** → extract → open `index.html`.
-
----
-
-## 🧰 Tools Used Across All Six Programmes (All Free)
-
-| Tool | Used In |
-|------|---------|
-| Python 3 + Anaconda | All |
-| VS Code / Jupyter Lab | All |
-| Git + GitHub | All |
-| Google Colab (free GPU) | DS, AI, Robotics |
-| Kaggle | DS, AI |
-| Docker Desktop | SE, DS, AI, Robotics |
-| PostgreSQL | DS, SE |
-| AWS Free Tier | SE, DS, CY |
-| Kali Linux / VirtualBox | CY |
-| Burp Suite CE | CY |
-| LTspice (free simulator) | EE |
-| KiCad (free PCB design) | EE, Robotics |
-| GNU Radio (free SDR) | EE, Robotics |
-| Wokwi (free MCU simulator) | EE, Robotics |
-| PyTorch / TensorFlow | AI, DS, Robotics |
-| Hugging Face | AI, DS, Robotics |
-| Weights & Biases (free tier) | AI, Robotics |
-| Ghidra (free NSA RE tool) | CY |
-| TryHackMe / Hack The Box | CY |
-| ROS 2 (free) | Robotics |
-| Gazebo Simulator (free) | Robotics |
-| CARLA AV Simulator (free) | Robotics |
-| PX4 Flight Controller (free) | Robotics |
-| OpenCV | AI, Robotics |
-| GTSAM / Open3D (free) | Robotics |
-
----
-
-## 📅 Suggested Study Schedule
-
-| Year | Hours/week | Total hours |
-|------|-----------|-------------|
-| BSc Year 1 | 10 hrs/week | ~400 hrs |
-| BSc Year 2 | 12 hrs/week | ~480 hrs |
-| BSc Year 3 | 14 hrs/week | ~560 hrs |
-| MSc Year 1 | 15 hrs/week | ~600 hrs |
-| MSc Year 2 | 18 hrs/week | ~720 hrs |
-
+📅 Suggested Study Schedule
+YearHours/weekTotal hoursBSc Year 110–12 hrs/week~480 hrsBSc Year 212–14 hrs/week~560 hrsBSc Year 314–16 hrs/week~640 hrsMSc Year 115–18 hrs/week~700 hrsMSc Year 218–22 hrs/week~820 hrs
 You do not need to follow the 5-year timeline. Many learners pick one programme and focus on the modules most relevant to their immediate goals.
 
----
-
-## 🤝 Contributing
-
+🤝 Contributing
 Contributions are welcome. If you find a broken link, a better free resource, or want to improve a module:
 
-1. Fork the repository
-2. Make your changes
-3. Open a pull request with a clear description
+Fork the repository
+Make your changes
+Open a pull request with a clear description
 
-**Contribution guidelines:**
-- All linked resources must be free and openly accessible — no paywalls
-- Resource links should be stable (prefer official docs, MIT OCW, GitHub pages)
-- Module content should be accurate, practical, and explained in plain English
-- No affiliation with or endorsement by any specific institution
+Contribution guidelines:
 
----
+All linked resources must be free and openly accessible — no paywalls
+Resource links should be stable (prefer official docs, MIT OCW, GitHub pages)
+Module content should be accurate, practical, and explained in plain English
+No affiliation with or endorsement by any specific institution
 
-## 📄 Licence
 
-This project is released under the **MIT Licence**.
-
+📄 Licence
+This project is released under the MIT Licence.
 You are free to use, copy, modify, merge, publish, distribute, and build on this curriculum for any purpose, including commercially, as long as the original licence notice is included.
 
----
-
-## ⚠️ Disclaimer
-
+⚠️ Disclaimer
 This is an independent, community-built educational resource. It is not affiliated with, endorsed by, or associated with any university, institution, or accreditation body.
-
 Completion of these curricula does not result in a formal academic qualification. For accredited qualifications, contact a recognised university directly.
 
----
-
-## ⭐ Star This Repo
-
+⭐ Star This Repo
 If this is useful to you, please star the repository — it helps other learners find it.
 
----
-
-*Built with the belief that world-class education should be free and accessible to everyone, everywhere.*
+Built with the belief that world-class education should be free and accessible to everyone, everywhere.
